@@ -1,0 +1,30 @@
+1,Nike,Dewasa Laki-laki,Air Max 270,Sneakers,2000000,50
+2,Nike,Dewasa Perempuan,Ultraboost,Running,2500000,30
+3,Nike,Anak-anak,Future Rider,Sport,1200000,40
+4,Nike,Dewasa Laki-laki,Nano X1,Training,1800000,20
+5,Nike,Dewasa Perempuan,Chuck Taylor,Sneakers,800000,60
+6,Adidas,Anak-anak,574 Core,Running,900000,25
+7,Adidas,Dewasa Laki-laki,Old Skool,Skate,700000,35
+8,Adidas,Dewasa Perempuan,Gel-Kayano,Running,2200000,15
+9,Adidas,Anak-anak,Disruptor,Sneakers,600000,45
+10,Adidas,Dewasa Laki-laki,GOwalk,Walking,1200000,30
+11,Puma,Dewasa Perempuan,Wave Rider,Running,1900000,20
+12,Puma,Anak-anak,Hovr Sonic,Running,1300000,40
+13,Puma,Dewasa Laki-laki,Ghost 13,Running,2100000,25
+14,Puma,Dewasa Perempuan,Ride 13,Running,2000000,30
+15,Puma,Anak-anak,Air Jordan 1,Basketball,2500000,10
+16,Reebok,Dewasa Laki-laki,Classic Boot,Boots,3000000,20
+17,Reebok,Dewasa Perempuan,Moab 2,Hiking,1800000,25
+18,Reebok,Anak-anak,Clifton 7,Running,1600000,35
+19,Reebok,Dewasa Laki-laki,Speedcross 5,Trail,2300000,15
+20,Reebok,Dewasa Perempuan,Newton Ridge,Hiking,1500000,20
+21,Converse,Anak-anak,Carnaby Evo,Sneakers,1200000,30
+22,Converse,Dewasa Laki-laki,Pure,Skate,900000,25
+23,Converse,Dewasa Perempuan,Newport H2,Sandals,1300000,20
+24,Converse,Anak-anak,Desert Boot,Boots,1100000,15
+25,Converse,Dewasa Laki-laki,Arizona,Sandals,1000000,40
+26,Vans,Dewasa Perempuan,Classic,Casual,800000,35
+27,Vans,Anak-anak,Classic Clog,Casual,500000,50
+28,Vans,Dewasa Laki-laki,Mexico 66,Sneakers,1500000,30
+29,Vans,Dewasa Perempuan,Maxima,Sneakers,1300000,20
+30,Vans,Anak-anak,Esplar,Sneakers,1400000,25
