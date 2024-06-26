@@ -22,12 +22,16 @@ bool isEmpty() {
 	return (head == NULL && tail == NULL);
 }
 
+int total = 0;
+int jumlah = 0;
+int nomor = 1;
+
 void __KERANJANG(),
      TambahKeranjang(Sepatu _sepatu),     // fungsi tambah node baru di head
      HapusPilihan(),              // fungsi hapus node dari head
      Checkout(),              // hapus semua node
      Print();                   // cetak semua isi node
-int jumlah = 0;
+
 
 
 
@@ -36,12 +40,15 @@ void TambahKeranjang(Sepatu _sepatu) {
 	newNode->data = _sepatu;   // pemasukan data node baru
 	newNode->next	= NULL; // dari parameter data, next
 	newNode->prev	= NULL; // dan prev masih kosong (null)
+	newNode->nomor   = nomor;
+	nomor++;
 
 	if (isEmpty()) {        // Jika node sebelumnya ga ada,
 		head	= newNode;  //
 		head->next	= NULL;
 		head->prev	= NULL;
 		tail		= head;
+
 	}
 	else {
 		newNode->next	= head;
@@ -56,6 +63,7 @@ void TambahKeranjang(Sepatu _sepatu) {
 
 
 void __KERANJANG() {
+
     Print();
     cout << "Diatas adalah Daftar Keranjang Anda,\n"
          << "1. Checkout Semua\n"
@@ -77,21 +85,85 @@ void __KERANJANG() {
 }
 
 void Checkout() {
-    cout << "h";
+    char pil;
+    cout << "Anda akan Men-Checkout keseluruhan keranjang\n"
+         << "Total keseluruhan yang harus dibayar Rp " << total
+         << "\nCheckout? (y/n): "; cin >> pil;
+    cin.ignore();
+    if (pil == 'Y' || pil == 'y') {
+        cout << "Terimakasih sudah berbelanja..";
+        if (isEmpty()) {
+        cout << "kosong";
+        }
+        else {
+            tumbal = head;
+            while (tumbal != NULL) {
+                setelah = tumbal;
+                tumbal = tumbal->next;
+                delete setelah;
+
+            }
+            jumlah = 0;
+            head = NULL;
+            tail = NULL;
+
+        }
+        total = 0;
+        nomor = 1;
+    } else if (pil == 'n' || pil == 'N') {
+
+    }
 }
 
 void HapusPilihan() {
-    int nomor;
+    int _nomor;
     cout << bersih;
     Print();
     cout << "Berikan nomor Barang yang ingin dihapus\n"
-         << "-> "; cin >> nomor;
+         << "-> "; cin >> _nomor;
          cin.ignore();
+    if (isEmpty()) {
+        cout << "Keranjang kosong!" << endl;
+        return;
+    }
+
+    tumbal = head;
+    while (tumbal != NULL && tumbal->nomor != _nomor) {
+        tumbal = tumbal->next;
+    }
+
+    if (tumbal == NULL) {
+        cout << "Nomor tidak ditemukan!" << endl;
+        return;
+    }
+
+    if (tumbal == head && tumbal == tail) {
+        head = tail = NULL;
+    } else if (tumbal == head) {
+        head = head->next;
+        head->prev = NULL;
+    } else if (tumbal == tail) {
+        tail = tail->prev;
+        tail->next = NULL;
+    } else {
+        tumbal->prev->next = tumbal->next;
+        tumbal->next->prev = tumbal->prev;
+    }
+
+    delete tumbal;
+
+
+    tumbal = tail;
+    int newNomor = 1;
+    while (tumbal != NULL) {
+        tumbal->nomor = newNomor++;
+        tumbal = tumbal->prev;
+    }
 }
 
 
 void Print() {
-    int total = 0;
+
     cout << bersih
          << "+--------------------------------------------------------------+\n"
          << "|                            KERANJANG                         |\n"
@@ -99,19 +171,19 @@ void Print() {
          << "| No | Merek     | Nama               | Jenis      | Harga     |\n"
          << "+----+-----------+--------------------+------------+-----------+\n";
 
-    	tumbal = head;
-    if (head != NULL)
+    	tumbal = tail;
+    if (tail != NULL)
     {
         while (tumbal != NULL)
         {
              cout << "| "
-                 << setw(3) << tumbal->data.ID     << "| "
+                 << setw(3) << tumbal->nomor     << "| "
                  << setw(10) << tumbal->data.Merek  << "| "
                  << setw(19)<< tumbal->data.Nama   << "| "
                  << setw(11)<< tumbal->data.Jenis  << "| "
                  << setw(10) << tumbal->data.Harga  << "|\n";
                  total += tumbal->data.Harga;
-            tumbal = tumbal->next;
+            tumbal = tumbal->prev;
         }
     }
     cout << "+----+-----------+--------------------+------------+-----------+\n"
