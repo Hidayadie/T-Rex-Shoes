@@ -1,6 +1,7 @@
 # depslib dependency file v1.0
-1719639769 source:/home/hidayadie/Github/Repos/T-Rex-Shoes/T-Rex Shoes/main.cpp
+1719656076 source:/home/hidayadie/Github/Repos/T-Rex-Shoes/T-Rex Shoes/main.cpp
 	"Database/database.h"
+	"Database/datauser.h"
 	"Source/katalog.h"
 	"Source/pencarian.h"
 	"Source/sorting.h"
@@ -11,7 +12,7 @@
 	<iomanip>
 	<fstream>
 
-1719639836 /home/hidayadie/Github/Repos/T-Rex-Shoes/T-Rex Shoes/Database/database.h
+1719656126 /home/hidayadie/Github/Repos/T-Rex-Shoes/T-Rex Shoes/Database/database.h
 	<iostream>
 	<fstream>
 	<iomanip>
@@ -29,6 +30,8 @@
 1719636947 /home/hidayadie/Github/Repos/T-Rex-Shoes/T-Rex Shoes/Source/pencarian.h
 	"keranjang.h"
 
-1719638377 /home/hidayadie/Github/Repos/T-Rex-Shoes/T-Rex Shoes/Source/keranjang.h
+1719642873 /home/hidayadie/Github/Repos/T-Rex-Shoes/T-Rex Shoes/Source/keranjang.h
 	"../Database/database.h"
+
+1719656159 /home/hidayadie/Github/Repos/T-Rex-Shoes/T-Rex Shoes/Database/datauser.h
 

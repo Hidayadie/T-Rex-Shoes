@@ -60,24 +60,13 @@ struct Sepatu {
         Stock  stok        ;   // Stack buat jumlah stok
 };
 
-struct User {
-    string Nama            ,
-           Password        ,
-           Status          ;
-};
-
-
-
 
 Sepatu sepatu[MAX_ISI];
 
 
 
-
-
-
 void M_DATABASE() {
-    database_read();
+    //database_read();
 }
 
 
@@ -159,16 +148,11 @@ bool database_update() {
                        << sepatu[i].stok.jumlah << "\n";
         }
     }
+    fileSepatu.close();
     return true;
 }
 
-void Registrasi() {
 
-}
-
-void Masuk() {
-
-}
 
 
 
@@ -191,20 +175,59 @@ void M_PROFIL() {
     getchar();
 }
 
-void member() {
-    cout<< "+-------------------------------+\n"
-        << "|         SELAMAT DATANG        |\n"
-        << "+-------------------------------+\n"
-        << "|Silahkan masukkan pilihan Anda |\n"
-        << "+-------------------------------+\n"
-        << "|1. Profil                      |\n"
-        << "|2. Katalog Barang              |\n"
-        << "|3. Pencarian                   |\n"
-        << "|4. Keranjang                   |\n"
-        << "|5. Keluar                      |\n"
-        << "+-------------------------------+\n";
+void Member() {
+    do {
+        bersihkanLayar();
+        cout<< "+-------------------------------+\n"
+            << "|         SELAMAT DATANG        |\n"
+            << "+-------------------------------+\n"
+            << "|Silahkan masukkan pilihan Anda |\n"
+            << "+-------------------------------+\n"
+            << "|1. Profil                      |\n"
+            << "|2. Katalog Barang              |\n"
+            << "|3. Pencarian                   |\n"
+            << "|4. Keranjang                   |\n"
+            << "|5. Keluar                      |\n"
+            << "+-------------------------------+\n";
+            cout << "Pilihan Anda: "; cin >> pil;
+            cin.ignore();
+
+            switch (pil) {
+                case 1:
+                    M_PROFIL();
+                break;
+                case 2:
+                    M_KATALOG();
+                break;
+                case 3:
+                    M_PENCARIAN();
+                break;
+                case 4:
+                    M_KERANJANG();
+                break;
+                case 5:
+                    return;
+                break;
+            }
+    } while (true);
 }
 
-
+void Admin() {
+    do {
+        bersihkanLayar();
+        cout<< "+-------------------------------+\n"
+            << "|         SELAMAT DATANG        |\n"
+            << "+-------------------------------+\n"
+            << "|Silahkan masukkan pilihan Anda |\n"
+            << "+-------------------------------+\n"
+            << "|1. Edit Katalog                |\n"
+            << "|2. Edit User                   |\n"
+            << "|3. Katalog Barang              |\n"
+            << "|4. Pencarian                   |\n"
+            << "|5. Keranjang                   |\n"
+            << "|6. Keluar                      |\n"
+            << "+-------------------------------+\n";
+    } while (true);
+}
 
 #endif // DATABASE
