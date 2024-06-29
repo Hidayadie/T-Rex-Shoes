@@ -1,13 +1,16 @@
 #ifndef KERANJANG_H
 #define KERANJANG_H
 
-#include "database.h"
+#include "../Database/database.h"
+
+
 
 struct Node {
-	int nomor;
-	Sepatu data;
-	Node *next,
-         *prev;
+	int     nomor   ;
+          //jml     ;
+	Sepatu  data    ;
+	Node    *next   ,
+            *prev   ;
 };
 
 Node *head,         // ujung kiri
@@ -26,8 +29,7 @@ int total = 0;
 int jumlah = 0;
 int nomor = 1;
 
-void __KERANJANG(),
-     TambahKeranjang(Sepatu _sepatu),     // fungsi tambah node baru di head
+void TambahKeranjang(Sepatu _sepatu),     // fungsi tambah node baru di head
      HapusPilihan(),              // fungsi hapus node dari head
      Checkout(),              // hapus semua node
      Print();                   // cetak semua isi node
@@ -62,14 +64,19 @@ void TambahKeranjang(Sepatu _sepatu) {
 
 
 
-void __KERANJANG() {
+void M_KERANJANG() {
+    if (isEmpty()) {
 
+        cout << "Keranjang anda masih kosong!!!";
+        getchar();
+        return;
+    }
     Print();
     cout << "Diatas adalah Daftar Keranjang Anda,\n"
          << "1. Checkout Semua\n"
          << "2. Hapus Keranjang\n"
-         << "3. Kembali\n"
-         << "-> "; cin >> pil;
+         << "-> ";
+    cin >> pil;
          cin.ignore();
 
          if (pil == 1) {
@@ -81,7 +88,7 @@ void __KERANJANG() {
          }
 
 
-    getchar();
+    //getchar();
 }
 
 void Checkout() {
@@ -92,40 +99,34 @@ void Checkout() {
     cin.ignore();
     if (pil == 'Y' || pil == 'y') {
         cout << "Terimakasih sudah berbelanja..";
-        if (isEmpty()) {
-        cout << "kosong";
+        tumbal = head;
+        while (tumbal != NULL) {
+            Cari_ID(tumbal->data.ID);
+            setelah = tumbal;
+            tumbal = tumbal->next;
+            delete setelah;
         }
-        else {
-            tumbal = head;
-            while (tumbal != NULL) {
-                setelah = tumbal;
-                tumbal = tumbal->next;
-                delete setelah;
+        jumlah = 0;
+        head = NULL;
+        tail = NULL;
 
-            }
-            jumlah = 0;
-            head = NULL;
-            tail = NULL;
-
-        }
         total = 0;
         nomor = 1;
+        getchar();
     } else if (pil == 'n' || pil == 'N') {
-
+        M_KERANJANG();
+        return;
     }
+    database_update();
 }
 
 void HapusPilihan() {
     int _nomor;
-    cout << bersih;
+    bersihkanLayar();
     Print();
     cout << "Berikan nomor Barang yang ingin dihapus\n"
          << "-> "; cin >> _nomor;
          cin.ignore();
-    if (isEmpty()) {
-        cout << "Keranjang kosong!" << endl;
-        return;
-    }
 
     tumbal = head;
     while (tumbal != NULL && tumbal->nomor != _nomor) {
@@ -155,17 +156,26 @@ void HapusPilihan() {
 
     tumbal = tail;
     int newNomor = 1;
+    total = 0;
     while (tumbal != NULL) {
         tumbal->nomor = newNomor++;
+        total += tumbal->data.Harga;
         tumbal = tumbal->prev;
     }
+    if (!isEmpty()) {
+        M_KERANJANG();
+        return;
+    }
+
+
+
 }
 
 
 void Print() {
 
-    cout << bersih
-         << "+--------------------------------------------------------------+\n"
+    bersihkanLayar();
+    cout << "+--------------------------------------------------------------+\n"
          << "|                            KERANJANG                         |\n"
          << "+----+-----------+--------------------+------------+-----------+\n"
          << "| No | Merek     | Nama               | Jenis      | Harga     |\n"

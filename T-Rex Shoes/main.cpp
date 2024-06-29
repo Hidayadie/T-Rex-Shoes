@@ -1,47 +1,49 @@
-#include "database.h"
-#include "Katalog.h"
-#include "Pencarian.h"
-#include "Keranjang.h"
+#include "Database/database.h"
+#include "Source/katalog.h"
+#include "Source/pencarian.h"
+#include "Source/sorting.h"
 
-#define bersih "\033[2J \033[1;1H"
 using namespace std;
 
 int main() {
-    database();
+    string nama, pass;
+    cout << "Silahkan Login terlebih dahulu\n"
+         << "Ketik 0 jika Anda belum memiliki akun"
+         << "Nama: "; getline(cin, nama);
+    if (nama == "0") {
+        //register
+    } else {
+        cout << "Pass: "; getline(cin, pass);
+        //login
+    }
+
+    if(database_read())
     cout << jumlahSepatu << " Terimput...";
-    Program();
+    MAIN_PROGRAM();
 }
 
-void Program() {
+void MAIN_PROGRAM() {
 
     getchar();
     do {
-    cout << bersih
-        << "+-------------------------------+\n"
-        << "|         SELAMAT DATANG        |\n"
-        << "+-------------------------------+\n"
-        << "|Silahkan masukkan pilihan Anda |\n"
-        << "+-------------------------------+\n"
-        << "|1. Profil                      |\n"
-        << "|2. Katalog Barang              |\n"
-        << "|3. Pencarian                   |\n"
-        << "|4. Keranjang                   |\n"
-        << "|5. Keluar                      |\n"
-        << "+-------------------------------+\n"
-        << "Pilihan Anda: "; cin >> pil;
+    bersihkanLayar();
+    reset();
+    member();
+    cout << "Pilihan Anda: "; cin >> pil;
         cin.ignore();
 
         switch (pil) {
             case 1:
-
+                M_PROFIL();
+            break;
             case 2:
-                __KATALOG();
+                M_KATALOG();
             break;
             case 3:
-                //encarian(sepatu, jumlahSepatu, "Air");
+                M_PENCARIAN();
             break;
             case 4:
-                __KERANJANG();
+                M_KERANJANG();
             break;
             case 5:
                 return;
@@ -53,16 +55,3 @@ void Program() {
 }
 
 
-
-void pencarian() {
-    string key;
-    cout << "Silahkan input nama yang ingin dicari...\n"
-         << "-> "; getline(cin, key);
-
-
-}
-
-void Keranjang() {
-
-
-}

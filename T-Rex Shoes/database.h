@@ -5,14 +5,25 @@
 #include <iomanip>
 #include <fstream>
 
+
+
 void Program()          ,
      database()         ,
      __KATALOG()          ,
      __Katalog_Cetak(int pilihan)   ,
-     //Pencarian(const Sepatu sepatuList[], int jumlahSepatu, const std::string& kategoriPencarian),
      __KERANJANG()        ,
-     __Preorder()         ;
+     __Preorder()         ,
+     profil()             ,
+     bersihkanLayar()     ;
 
+
+void bersihkanLayar() {
+    #ifdef __linux__
+    system("clear");
+    #elif _WIN32
+    system("cls");
+    #endif // __linux__
+}
 
 using namespace std;
 #define bersih "\033[2J \033[1;1H"

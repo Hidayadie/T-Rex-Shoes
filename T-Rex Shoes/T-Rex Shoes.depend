@@ -1,53 +1,34 @@
 # depslib dependency file v1.0
-1719335529 source:/home/hidayadie/Github/Repos/Alprog/Project/Gudang/TokoSepatu/T-Rex Shoes/main.cpp
-	"database.h"
-	"Katalog.h"
-	"Pencarian.h"
-	"Keranjang.h"
+1719639769 source:/home/hidayadie/Github/Repos/T-Rex-Shoes/T-Rex Shoes/main.cpp
+	"Database/database.h"
+	"Source/katalog.h"
+	"Source/pencarian.h"
+	"Source/sorting.h"
 
-1719334480 /home/hidayadie/Github/Repos/Alprog/Project/Gudang/TokoSepatu/T-Rex Shoes/database//database.h
+1719573885 /home/hidayadie/Github/Repos/T-Rex-Shoes/T-Rex Shoes/database.h
 	<vector>
 	<iostream>
 	<iomanip>
 	<fstream>
 
-1719335638 /home/hidayadie/Github/Repos/Alprog/Project/Gudang/TokoSepatu/T-Rex Shoes/Katalog.h
-	"database.h"
-	"Preorder.h"
-	"Keranjang.h"
-
-1719333679 /home/hidayadie/Github/Repos/Alprog/Project/Gudang/TokoSepatu/T-Rex Shoes/Pencarian.h
-	"database.h"
-
-1719337328 /home/hidayadie/Github/Repos/Alprog/Project/Gudang/TokoSepatu/T-Rex Shoes/Keranjang.h
-	"database.h"
-
-1719334658 /home/hidayadie/Github/Repos/Alprog/Project/Gudang/TokoSepatu/T-Rex Shoes/Preorder.h
-	"database.h"
-
-1719361836 source:/home/hidayadie/Github/Repos/T-Rex-Shoes/T-Rex Shoes/main.cpp
-	"database.h"
-	"Katalog.h"
-	"Pencarian.h"
-	"Keranjang.h"
-
-1719361836 /home/hidayadie/Github/Repos/T-Rex-Shoes/T-Rex Shoes/database//database.h
-	<vector>
+1719639836 /home/hidayadie/Github/Repos/T-Rex-Shoes/T-Rex Shoes/Database/database.h
 	<iostream>
-	<iomanip>
 	<fstream>
+	<iomanip>
+	<cstring>
+	<string>
 
-1719361836 /home/hidayadie/Github/Repos/T-Rex-Shoes/T-Rex Shoes/Katalog.h
-	"database.h"
-	"Preorder.h"
-	"Keranjang.h"
+1719636947 /home/hidayadie/Github/Repos/T-Rex-Shoes/T-Rex Shoes/Source/katalog.h
+	"../Database/database.h"
+	"sorting.h"
+	"keranjang.h"
 
-1719361836 /home/hidayadie/Github/Repos/T-Rex-Shoes/T-Rex Shoes/Preorder.h
-	"database.h"
+1719577065 /home/hidayadie/Github/Repos/T-Rex-Shoes/T-Rex Shoes/Source/sorting.h
+	"../Database/database.h"
 
-1719364216 /home/hidayadie/Github/Repos/T-Rex-Shoes/T-Rex Shoes/Keranjang.h
-	"database.h"
+1719636947 /home/hidayadie/Github/Repos/T-Rex-Shoes/T-Rex Shoes/Source/pencarian.h
+	"keranjang.h"
 
-1719361836 /home/hidayadie/Github/Repos/T-Rex-Shoes/T-Rex Shoes/Pencarian.h
-	"database.h"
+1719638377 /home/hidayadie/Github/Repos/T-Rex-Shoes/T-Rex Shoes/Source/keranjang.h
+	"../Database/database.h"
 

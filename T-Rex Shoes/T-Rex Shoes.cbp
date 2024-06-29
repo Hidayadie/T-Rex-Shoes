@@ -13,8 +13,8 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
-					<Add directory="database/" />
-					<Add directory="./" />
+					<Add directory="Database" />
+					<Add directory="Source" />
 				</Compiler>
 			</Target>
 		</Build>
@@ -22,14 +22,12 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="Katalog.h" />
-		<Unit filename="Keranjang.cpp">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="Keranjang.h" />
-		<Unit filename="Pencarian.h" />
-		<Unit filename="Preorder.h" />
-		<Unit filename="database/database.h" />
+		<Unit filename="Database/database.h" />
+		<Unit filename="Database/datauser.h" />
+		<Unit filename="Source/katalog.h" />
+		<Unit filename="Source/keranjang.h" />
+		<Unit filename="Source/pencarian.h" />
+		<Unit filename="Source/sorting.h" />
 		<Unit filename="main.cpp" />
 		<Extensions />
 	</Project>
