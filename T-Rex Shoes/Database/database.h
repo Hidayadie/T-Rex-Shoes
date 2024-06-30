@@ -232,18 +232,25 @@ void Admin() {
 
             switch (pil) {
                 case 1:
-                    M_PROFIL();
+
                 break;
                 case 2:
+
+                break;
+
+                case 3:
                     M_KATALOG();
                 break;
-                case 3:
+
+                case 4:
                     M_PENCARIAN();
                 break;
-                case 4:
+
+                case 5:
                     M_KERANJANG();
                 break;
-                case 5:
+
+                case 6:
                     return;
                 break;
             }

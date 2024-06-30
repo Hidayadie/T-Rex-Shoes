@@ -32,7 +32,7 @@ bool Registrasi() {
         cout << "Konfirmasi Password: "; getline(cin, _Konfirm);
         if (_Pass == _Konfirm) {
             if(datauser_add(_Nama, _Pass)) {
-                cout << "Akun berhasil dibuat\n"
+                cout << "\nAkun berhasil dibuat\n"
                      << "Silahkan login ulang untuk masuk...";
                 getchar();
                 return Login();
@@ -44,6 +44,8 @@ bool Registrasi() {
 
         }
     } while (true);
+
+    return false;
 }
 bool Login() {
     string nama, pass;
@@ -52,10 +54,10 @@ bool Login() {
          << "Ketik 0 jika Anda belum memiliki akun\n"
          << "Nama: "; getline(cin, nama);
     if (nama == "0") {
-        Registrasi();
+        return Registrasi();
     } else {
         cout << "Pass: "; getline(cin, pass);
-        for (int i = 0; i <= 5; i++) {
+        for (int i = 0; i < jumlahUser; i++) {
             if (nama == user[i].Nama) {
                 if (pass == user[i].Password) {
                     userSekarang.Nama = user[i].Nama;
@@ -119,8 +121,17 @@ bool datauser_update() {
     ofstream fileUser;
 
     fileUser.open("Database/datauser.txt");
-
-
+    if (fileUser.is_open()) {
+        for (int i = 0; i < jumlahUser; i++) {
+            fileUser << user[i].Nama        << ','
+                     << user[i].Password    << ','
+                     << user[i].Status      << "\n";
+        }
+    } else {
+        fileUser.close();
+        return false;
+    }
     fileUser.close();
+    return true;
 }
 #endif // DATAUSER_H
