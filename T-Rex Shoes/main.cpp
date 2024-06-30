@@ -13,8 +13,7 @@ int main() {
         return 1;
     if (!database_read())
         return 1;
-    if (!Masuk())
-        return 1;
+    Login();
     cout << "DEBUG: "
          << jumlahSepatu << " Terimput...\n"
          << "Masuk sebagai "<<userSekarang.Nama <<" dengan status " <<userSekarang.Status;

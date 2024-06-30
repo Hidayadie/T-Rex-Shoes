@@ -215,18 +215,38 @@ void Member() {
 void Admin() {
     do {
         bersihkanLayar();
-        cout<< "+-------------------------------+\n"
-            << "|         SELAMAT DATANG        |\n"
-            << "+-------------------------------+\n"
-            << "|Silahkan masukkan pilihan Anda |\n"
-            << "+-------------------------------+\n"
-            << "|1. Edit Katalog                |\n"
-            << "|2. Edit User                   |\n"
-            << "|3. Katalog Barang              |\n"
-            << "|4. Pencarian                   |\n"
-            << "|5. Keranjang                   |\n"
-            << "|6. Keluar                      |\n"
-            << "+-------------------------------+\n";
+        cout << "+-------------------------------+\n"
+             << "|         SELAMAT DATANG        |\n"
+             << "+-------------------------------+\n"
+             << "|Silahkan masukkan pilihan Anda |\n"
+             << "+-------------------------------+\n"
+             << "|1. Edit Katalog                |\n"
+             << "|2. Edit User                   |\n"
+             << "|3. Katalog Barang              |\n"
+             << "|4. Pencarian                   |\n"
+             << "|5. Keranjang                   |\n"
+             << "|6. Keluar                      |\n"
+             << "+-------------------------------+\n";
+        cout << "Pilihan Anda: "; cin >> pil;
+            cin.ignore();
+
+            switch (pil) {
+                case 1:
+                    M_PROFIL();
+                break;
+                case 2:
+                    M_KATALOG();
+                break;
+                case 3:
+                    M_PENCARIAN();
+                break;
+                case 4:
+                    M_KERANJANG();
+                break;
+                case 5:
+                    return;
+                break;
+            }
     } while (true);
 }
 

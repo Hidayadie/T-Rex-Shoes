@@ -12,32 +12,42 @@ User user[MAX_ISI],
 int jumlahUser = 0;
 
 
-void Registrasi()   ;
+bool Registrasi()   ;
+bool Login()        ;
 
-bool Masuk()        ,
+bool //Masuk()        ,
      datauser_read(string nama, string pass),
-     datauser_add() ,
+     datauser_add(string nama, string pass) ,
      datauser_update();
 
 
-void Registrasi() {
+bool Registrasi() {
+    bersihkanLayar();
     do {
         string _Nama, _Pass, _Konfirm;
-        bersihkanLayar();
         cout << "Selamat datang\n"
              << "Masukkan identitas Anda\n"
              << "Nama: "; getline(cin, _Nama);
         cout << "Pass: "; getline(cin, _Pass);
         cout << "Konfirmasi Password: "; getline(cin, _Konfirm);
         if (_Pass == _Konfirm) {
+            if(datauser_add(_Nama, _Pass)) {
+                cout << "Akun berhasil dibuat\n"
+                     << "Silahkan login ulang untuk masuk...";
+                getchar();
+                return Login();
+            }
             break;
+        } else {
+            bersihkanLayar();
+            cout << "Maaf password tidak sinkron, silahkan coba ulang\n";
 
         }
     } while (true);
 }
-
-bool Masuk() {
+bool Login() {
     string nama, pass;
+    bersihkanLayar();
     cout << "Silahkan Login terlebih dahulu\n"
          << "Ketik 0 jika Anda belum memiliki akun\n"
          << "Nama: "; getline(cin, nama);
@@ -56,7 +66,9 @@ bool Masuk() {
         }
     }
     return false;
+
 }
+
 
 bool datauser_read() {
     ifstream fileUser("Datauser/datauser.txt");
@@ -84,11 +96,31 @@ bool datauser_read() {
     return true;
 }
 
-bool datauser_add() {
+bool datauser_add(string nama, string pass) {
+    ofstream fileUser;
 
+    fileUser.open("Database/datauser.txt", ios::app);
+
+    if (fileUser.is_open()) {
+        fileUser << nama << ',' << pass << ',' << "Member" << "\n";
+        user[jumlahUser].Nama = nama;
+        user[jumlahUser].Password = pass;
+        user[jumlahUser].Status = "Member";
+        jumlahUser++;
+    } else {
+        fileUser.close();
+        return false;
+    }
+    fileUser.close();
+    return true;
 }
 
 bool datauser_update() {
+    ofstream fileUser;
 
+    fileUser.open("Database/datauser.txt");
+
+
+    fileUser.close();
 }
 #endif // DATAUSER_H
