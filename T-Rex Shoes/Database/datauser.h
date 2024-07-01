@@ -15,8 +15,7 @@ int jumlahUser = 0;
 bool Registrasi()   ;
 bool Login()        ;
 
-bool //Masuk()        ,
-     datauser_read(string nama, string pass),
+bool datauser_read(),
      datauser_add(string nama, string pass) ,
      datauser_update();
 
