@@ -6,7 +6,7 @@
 #include "keranjang.h"
 using namespace std;
 
-
+// konstruktor
 void _K_Print(int pilihan) ,
      _K_Menu(int pilihan)  ;
 
