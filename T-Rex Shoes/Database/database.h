@@ -32,8 +32,9 @@ void MAIN_PROGRAM()         , // konstruktor main program
      M_KATALOG()            , // fungsi menampilkan menu katalog
      M_PENCARIAN()          , // fungsi pencarian
      M_KERANJANG()          , // fungsi keranjang
-     bersihkanLayar()       , // fungsi pembersihan layar
-     Cari_ID(string _ID)    ; // fungsi cari sepatu berdasarkan ID
+     bersihkanLayar()       ; // fungsi pembersihan layar
+
+int  Cari_ID(string _ID)    ; // fungsi cari sepatu berdasarkan ID
 
 bool database_read()        , // fungsi pengecekan apakah berhasil membaca file
      database_update()      , // fungsi mengupdate database dan menulis ulang
@@ -69,6 +70,7 @@ const int MAX_ISI       = 50;   // digunakan untuk maksimal database
 
       int pil               ,   // global variabel pilihan
           jumlahSepatu  = 0 ;   // jumlah sepatu yang ada pada program
+      char pilC;
 
 struct Stock {
     int jumlah          ; // jumlah sepatu itu sendiri
@@ -158,31 +160,6 @@ bool database_read() {
         return false;
     }
 }
-/*
-bool database_add() {
-    ofstream fileSepatu;
-
-    fileSepatu.open("Database/database.txt", ios::app);
-    if (fileSepatu.is_open()) {
-        string _ID          ,
-               _Merek       ,   // Merek dari sepatu
-               _kategori    ,   // Kategori sepatu
-               _Nama        ,   // Nama sepatunya
-               _Jenis       ;   // Jenis (Sneakers, sport, dsb)
-        int    _Harga       ,   // Harga sepatunya
-               _stok        ;   // Stack buat jumlah stok
-
-        cout << "Masukkan id: "; getline(cin, _ID);
-        cout << "Masukkan Merek: "; getline(cin, _Merek);
-        cout << "Masukkan Nama: "; getline(cin, _Nama);
-        cout << "Masukkan Jenis: "; getline(cin, _Jenis);
-        //cout << "Masukkan Harga: "; getline(cin, _Harga);
-        //cout << "Masukkan Stok: "; getline(cin, _Stok);
-        fileSepatu << _ID << ',' << _Merek <<',' << "Anak-anak"<< ','<<_Nama <<',' <<_Jenis <<',' <<123400<<',' <<25<<'\n';
-    fileSepatu.close();
-    }
-}
-*/
 
 
 bool database_update() {
@@ -265,49 +242,6 @@ void Member() {
     } while (true);
 }
 
-void Admin() {
-    do {
-        bersihkanLayar();
-        cout << "+-------------------------------+\n"
-             << "|         SELAMAT DATANG        |\n"
-             << "+-------------------------------+\n"
-             << "|Silahkan masukkan pilihan Anda |\n"
-             << "+-------------------------------+\n"
-             << "|1. Edit Katalog                |\n"
-             << "|2. Edit User                   |\n"
-             << "|3. Katalog Barang              |\n"
-             << "|4. Pencarian                   |\n"
-             << "|5. Keranjang                   |\n"
-             << "|6. Keluar                      |\n"
-             << "+-------------------------------+\n";
-        cout << "Pilihan Anda: "; cin >> pil;
-            cin.ignore();
 
-            switch (pil) {
-                case 1:
-
-                break;
-                case 2:
-
-                break;
-
-                case 3:
-                    M_KATALOG();
-                break;
-
-                case 4:
-                    M_PENCARIAN();
-                break;
-
-                case 5:
-                    M_KERANJANG();
-                break;
-
-                case 6:
-                    return;
-                break;
-            }
-    } while (true);
-}
 
 #endif // DATABASE

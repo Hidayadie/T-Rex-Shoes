@@ -26,5 +26,5 @@
 26,Vans,Dewasa Perempuan,Classic,Casual,800000,35
 27,Vans,Anak-anak,Classic Clog,Casual,500000,50
 28,Vans,Dewasa Laki-laki,Mexico 66,Sneakers,1500000,30
-29,Vans,Dewasa Perempuan,Maxima,Sneakers,1300000,20
+29,Vans,Dewasa Perempuan,Maximus,Sneakers,1300000,44
 30,Vans,Anak-anak,Esplar,Sneakers,1400000,25

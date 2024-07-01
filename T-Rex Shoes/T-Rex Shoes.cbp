@@ -24,6 +24,7 @@
 		</Compiler>
 		<Unit filename="Database/database.h" />
 		<Unit filename="Database/datauser.h" />
+		<Unit filename="Source/Admin.h" />
 		<Unit filename="Source/katalog.h" />
 		<Unit filename="Source/keranjang.h" />
 		<Unit filename="Source/pencarian.h" />

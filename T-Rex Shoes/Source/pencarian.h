@@ -14,12 +14,13 @@ void kecilkanHuruf(char* str) {
 
 
 
-void Cari_ID(string _ID) {
+int Cari_ID(string _ID) {
     for (int i =0; i < jumlahSepatu; i++) {
         if (_ID == sepatu[i].ID) {
-            sepatu[i].stok.jumlah--;
+            return i;
         }
     }
+    return -1;
 }
 
 

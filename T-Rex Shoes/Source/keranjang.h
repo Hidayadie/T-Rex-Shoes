@@ -101,7 +101,7 @@ void Checkout() {
         cout << "Terimakasih sudah berbelanja..";
         tumbal = head;
         while (tumbal != NULL) {
-            Cari_ID(tumbal->data.ID);
+            sepatu[Cari_ID(tumbal->data.ID)].stok.jumlah--;
             setelah = tumbal;
             tumbal = tumbal->next;
             delete setelah;

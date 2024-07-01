@@ -3,6 +3,7 @@
 #include "Source/katalog.h"
 #include "Source/pencarian.h"
 #include "Source/sorting.h"
+#include "Source/Admin.h"
 
 // Program T-Res shoes, adalah program manajemen
 // sistem informasi penjualan sepatu Console User
@@ -39,7 +40,8 @@ int main() {
     // juga siapa user sekarang sekaligus hak akses statusnya
     cerr << "DEBUG: "
          << jumlahSepatu << " Terimput...\n"
-         << "Masuk sebagai "<<userSekarang.Nama <<" dengan status " <<userSekarang.Status;
+         << "Masuk sebagai "<<userSekarang.Nama <<" dengan status " <<userSekarang.Status << "\n"
+         << "pada: " << __TIMESTAMP__;
 
     // Menjalankan program T-Rex Shoes
     MAIN_PROGRAM();
