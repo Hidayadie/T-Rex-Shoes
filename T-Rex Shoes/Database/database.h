@@ -34,7 +34,8 @@ void MAIN_PROGRAM()         , // konstruktor main program
      M_KERANJANG()          , // fungsi keranjang
      bersihkanLayar()       ; // fungsi pembersihan layar
 
-int  Cari_ID(string _ID)    ; // fungsi cari sepatu berdasarkan ID
+int  Cari_ID(string _ID)    , // fungsi cari sepatu berdasarkan ID
+     Cari_User(string nama) ;
 
 bool database_read()        , // fungsi pengecekan apakah berhasil membaca file
      database_update()      , // fungsi mengupdate database dan menulis ulang

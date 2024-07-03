@@ -290,7 +290,7 @@ void _K_Hapus() {
                  << "(Y/n): "; cin >>pilC;
             cin.ignore();
             if (pilC == 'Y' || pilC == 'y') {
-                penghapusan(Cari_ID(temp));
+                penghapusanSepatu(Cari_ID(temp));
                 cout << "Data berhasil dihapus...";
                 getchar();
             }
@@ -330,18 +330,18 @@ void EditUser() {
                 break;
 
                 case 2:
-                    //_U_Tambah();
+                    bersihkanLayar();
+                    _U_Tambah();
                 break;
 
                 case 3:
                     bersihkanLayar();
-                    cout << "Gunakan menu 1 jika anda lupa ID sepatu\n";
-                    _K_Edit();
+                    _U_Edit();
                 break;
 
                 case 4:
                     bersihkanLayar();
-                   // _U_Hapus();
+                    _U_Hapus();
                 break;
                 case 5:
                     return;
@@ -365,7 +365,91 @@ void _U_APrint() {
              << setw(12) << user[i].Status << "|\n";
     }
     cout << "+----+--------------------------+-------------------+-------------+\n";
+    cout << "1. Tambah\n"
+         << "2. Edit Hak Akses\n"
+         << "3. Hapus User\n"
+         << "4. Kembali\n"
+         << "-> "; cin >> pil;
+    cin.ignore();
+    switch (pil) {
+        case 1:
+            _U_Tambah();
+        break;
+        case 2:
+            _U_Edit();
+        break;
+        case 3:
+            _U_Hapus();
+        break;
+        case 4:
+            return;
+        break;
+    }
+
+}
+
+void _U_Tambah() {
+    string temp;
+    cout << "Penambahan user...\n"
+         << "Nama: "; getline(cin, temp);
+    user[jumlahUser].Nama = temp;
+    cout << "Password: "; getline(cin, temp);
+    user[jumlahUser].Password = temp;
+    cout << "Hak akses...\n"
+         << "1. Admin\n"
+         << "2. Member\n"
+         << "-> "; cin >> pil;
+    cin.ignore();
+    user[jumlahUser].Status = ((pil == 1) ? "Admin" : "Member");
+    cout << "Nama: \"" << user[jumlahUser].Nama << "\"\n"
+         << "Pass: \"" << user[jumlahUser].Password <<"\"\n"
+         << "Status: " << user[jumlahUser].Status << "\n"
+         << "Apakah data diatas sudah benar?\n"
+         << "(Y/n): "; cin >> pilC;
+    cin.ignore();
+    if (pilC == 'Y' || pilC == 'y') {
+        jumlahUser++;
+        cout << "User berhasil ditambah...";
+        getchar();
+    }
+}
+
+void _U_Edit() {
+    string temp;
+    cout << "Masukkan username: ";
+    getline(cin, temp);
+    cout << user[Cari_User(temp)].Nama << ", saat ini adalah " << user[Cari_User(temp)].Status << "\n"
+         << "Ubah menjadi...\n"
+         << "1. Admin\n"
+         << "2. Member\n"
+         << "-> "; cin >> pil;
+    user[Cari_User(temp)].Status = ((pil == 1) ? "Admin" : "Member");
+    cout << "Berhasil mengubah hak akses...";
     getchar();
 }
 
+void _U_Hapus() {
+    string temp;
+    cout << "PERINGATAN!!!\n"
+         << "Penghapusan User bersifat permanen\n"
+         << "dan tidak bisa dilakukan pemulihan\n"
+         << "apakah anda yakin? (Y/n): "; cin >>pilC;
+    cin.ignore();
+    if (pilC == 'Y' || pilC == 'y') {
+        cout << "Username: "; getline(cin, temp);
+        if (temp != userSekarang.Nama) {
+            if (Cari_User(temp) == -1)
+                return;
+
+            cout << user[Cari_User(temp)].Status << " " << user[Cari_User(temp)].Nama << "\n"
+                 << "Akan dihapus, apakah Anda yakin?\n"
+                 << "(Y/n): "; cin >> pilC;
+            cin.ignore();
+            if (pilC == 'Y' || pilC == 'y') {
+                penghapusanUser(Cari_User(temp));
+                datauser_update();
+            }
+        }
+    }
+}
 #endif // ADMIN_H

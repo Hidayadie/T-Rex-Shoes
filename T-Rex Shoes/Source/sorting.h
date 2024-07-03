@@ -79,10 +79,17 @@ void reset() {
     }
 }
 
-void penghapusan(int in) {
+void penghapusanSepatu(int in) {
     for (int i = in;i < jumlahSepatu; i++) {
         sepatu[i] = sepatu[i+1];
     }
     jumlahSepatu--;
+}
+
+void penghapusanUser(int in) {
+    for (int i = in;i < jumlahUser; i++) {
+        user[i] = user[i+1];
+    }
+    jumlahUser--;
 }
 #endif // SORTING_H

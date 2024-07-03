@@ -23,6 +23,14 @@ int Cari_ID(string _ID) {
     return -1;
 }
 
+int Cari_User(string nama) {
+    for (int i = 0; i < jumlahUser; i++) {
+        if (nama == user[i].Nama) {
+            return i;
+        }
+    }
+    return -1;
+}
 
 void M_PENCARIAN() {
     string keyword, IDBeli;

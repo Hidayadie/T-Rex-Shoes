@@ -1,10 +1,13 @@
 #ifndef DATAUSER_H
 #define DATAUSER_H
 
+#include "database.h"
+
 struct User {
-    string Nama            ,
-           Password        ,
-           Status          ;
+    string Nama     ,
+           Password ,
+           Status   ,
+           join     ;
 };
 
 User user[MAX_ISI],
@@ -34,7 +37,6 @@ bool Registrasi() {
                 cout << "\nAkun berhasil dibuat\n"
                      << "Silahkan login ulang untuk masuk...";
                 getchar();
-                return Login();
             }
             break;
         } else {
@@ -44,7 +46,7 @@ bool Registrasi() {
         }
     } while (true);
 
-    return false;
+    return Login();
 }
 bool Login() {
     string nama, pass;
@@ -52,21 +54,17 @@ bool Login() {
     cout << "Silahkan Login terlebih dahulu\n"
          << "Ketik 0 jika Anda belum memiliki akun\n"
          << "Nama: "; getline(cin, nama);
-    if (nama == "0") {
-        return Registrasi();
-    } else {
+    if (nama != "0") {
         cout << "Pass: "; getline(cin, pass);
-        for (int i = 0; i < jumlahUser; i++) {
-            if (nama == user[i].Nama) {
-                if (pass == user[i].Password) {
-                    userSekarang.Nama = user[i].Nama;
-                    userSekarang.Status = user[i].Status;
-                    return true;
-                }
+        if (user[Cari_User(nama)].Nama == nama &&
+            user[Cari_User(nama)].Password == pass) {
+                return true;
             }
-        }
     }
-    return false;
+    if (Cari_User(nama) == -1) {
+        cout << "username tidak ditemukan...";
+    }
+    return Registrasi();
 
 }
 
@@ -79,14 +77,17 @@ bool datauser_read() {
     if (fileUser.is_open()) {
         string nama     ,
            pass     ,
-           status   ;
-        while(getline(fileUser, nama, ',')) {
-              getline(fileUser, pass, ',')  ;
-              getline(fileUser, status)      ;
+           status   ,
+           tanggal  ;
+        while(getline(fileUser, nama, ','   )) {
+              getline(fileUser, pass, ','   )  ;
+              getline(fileUser, status, ',' )  ;
+              getline(fileUser, tanggal)       ;
 
               user[jumlahUser].Nama = nama      ;
               user[jumlahUser].Password = pass  ;
               user[jumlahUser].Status = status  ;
+              user[jumlahUser].join = tanggal   ;
 
               jumlahUser++;
 
@@ -103,10 +104,11 @@ bool datauser_add(string nama, string pass) {
     fileUser.open("Database/datauser.txt", ios::app);
 
     if (fileUser.is_open()) {
-        fileUser << nama << ',' << pass << ',' << "Member" << "\n";
+        fileUser << nama << ',' << pass << ',' << "Member" << ',' <<__TIMESTAMP__ << "\n";
         user[jumlahUser].Nama = nama;
         user[jumlahUser].Password = pass;
         user[jumlahUser].Status = "Member";
+        user[jumlahUser].join = __TIMESTAMP__;
         jumlahUser++;
     } else {
         fileUser.close();
@@ -124,7 +126,8 @@ bool datauser_update() {
         for (int i = 0; i < jumlahUser; i++) {
             fileUser << user[i].Nama        << ','
                      << user[i].Password    << ','
-                     << user[i].Status      << "\n";
+                     << user[i].Status      << ','
+                     << user[i].join        << "\n";
         }
     } else {
         fileUser.close();

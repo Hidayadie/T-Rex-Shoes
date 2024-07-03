@@ -40,8 +40,8 @@ int main() {
     // juga siapa user sekarang sekaligus hak akses statusnya
     cerr << "DEBUG: "
          << jumlahSepatu << " Terimput...\n"
-         << "Masuk sebagai "<<userSekarang.Nama <<" dengan status " <<userSekarang.Status << "\n"
-         << "pada: " << __TIMESTAMP__;
+         << "Masuk sebagai "<<userSekarang.Nama <<" dengan status " <<userSekarang.Status << "\n";
+         //<< "pada: " << __TIMESTAMP__;
 
     // Menjalankan program T-Rex Shoes
     MAIN_PROGRAM();
