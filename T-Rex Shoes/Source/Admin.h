@@ -10,6 +10,7 @@ void EditKatalog()  ,
      _K_Edit()      ,
      _K_Hapus()     ,
      EditUser()     ,
+     _U_APrint()    ,
      _U_Tambah()    ,
      _U_Edit()      ,
      _U_Hapus()     ;
@@ -38,7 +39,7 @@ void Admin() {
                     EditKatalog();
                 break;
                 case 2:
-
+                    EditUser();
                 break;
 
                 case 3:
@@ -94,7 +95,8 @@ void EditKatalog() {
                 break;
 
                 case 4:
-
+                    bersihkanLayar();
+                    _K_Hapus();
                 break;
                 case 5:
                     return;
@@ -120,6 +122,7 @@ void _K_APrint() {
         break;
 
         case 2:
+            _K_Hapus();
         break;
         case 3:
             bersihkanLayar();
@@ -130,7 +133,7 @@ void _K_APrint() {
             return;
         break;
         case 4:
-
+            return;
         break;
     }
 }
@@ -272,15 +275,97 @@ void _K_Edit() {
 }
 
 void _K_Hapus() {
+    string temp;
     cout << "PERINGATAN!!!\n"
          << "Penghapusan sepatu bersifat permanen\n"
          << "dan tidak bisa dilakukan pemulihan\n"
          << "apakah anda yakin? (Y/n): "; cin >>pilC;
     cin.ignore();
     if (pilC == 'Y' || pilC == 'y') {
-        cout << "Pilih ID: ";
+        cout << "Pilih ID: "; getline(cin, temp);
+        if (Cari_ID(temp) != -1) {
+            bersihkanLayar();
+            cout << "Sepatu: " << sepatu[Cari_ID(temp)].Nama << ", dari " << sepatu[Cari_ID(temp)].Merek << "\n"
+                 << "Akan dihapus, apakah data diatas sudah benar?\n"
+                 << "(Y/n): "; cin >>pilC;
+            cin.ignore();
+            if (pilC == 'Y' || pilC == 'y') {
+                penghapusan(Cari_ID(temp));
+                cout << "Data berhasil dihapus...";
+                getchar();
+            }
+        } else {
+            cout << "Data tidak ditemukan...";
+            getchar();
+        }
     }
 }
 
+
+
+/*************************************************/
+
+
+void EditUser() {
+    while (true) {
+        bersihkanLayar();
+        cout << "+-------------------------------------+\n"
+             << "|              EDIT USER              |\n"
+             << "+-------------------------------------+\n"
+             << "| Edit Nama, Reset Password, ataupun  |\n"
+             << "| ubah hak akses melalui menu ini     |\n"
+             << "+-------------------------------------+\n"
+             << "| 1. Tampilkan User                   |\n"
+             << "| 2. Tambahkan User                   |\n"
+             << "| 3. Edit Hak akses                   |\n"
+             << "| 4. Hapus User                       |\n"
+             << "| 5. Kembali                          |\n"
+             << "|                                     |\n"
+             << "+-------------------------------------+\n"
+             << "pilih: "; cin >> pil;
+             cin.ignore();
+             switch (pil) {
+                case 1:
+                    _U_APrint();
+                break;
+
+                case 2:
+                    //_U_Tambah();
+                break;
+
+                case 3:
+                    bersihkanLayar();
+                    cout << "Gunakan menu 1 jika anda lupa ID sepatu\n";
+                    _K_Edit();
+                break;
+
+                case 4:
+                    bersihkanLayar();
+                   // _U_Hapus();
+                break;
+                case 5:
+                    return;
+                break;
+
+             }
+    }
+}
+
+
+void _U_APrint() {
+    bersihkanLayar();
+    cout << "+----+--------------------------+-------------------+-------------+\n"
+         << "| No | Nama                     | Password          | Akses       |\n"
+         << "+----+--------------------------+-------------------+-------------+\n";
+    for (int i = 0; i < jumlahUser; i++) {
+        cout << "| " << left
+             << setw(3) << i + 1 << "| "
+             << setw(25) << user[i].Nama << "| "
+             << setw(18) << user[i].Password << "| "
+             << setw(12) << user[i].Status << "|\n";
+    }
+    cout << "+----+--------------------------+-------------------+-------------+\n";
+    getchar();
+}
 
 #endif // ADMIN_H

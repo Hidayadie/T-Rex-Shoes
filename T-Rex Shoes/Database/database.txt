@@ -1,4 +1,3 @@
-1,Nike,Dewasa Laki-laki,Air Max 270,Sneakers,2000000,49
 2,Nike,Dewasa Perempuan,Ultraboost,Running,2500000,30
 3,Nike,Anak-anak,Future Rider,Sport,1200000,40
 4,Nike,Dewasa Laki-laki,Nano X1,Training,1800000,20
@@ -28,3 +27,4 @@
 28,Vans,Dewasa Laki-laki,Mexico 66,Sneakers,1500000,30
 29,Vans,Dewasa Perempuan,Maximus,Sneakers,1300000,44
 30,Vans,Anak-anak,Esplar,Sneakers,1400000,25
+1,dwa,Anak-anak,asda,daw,123450,5
