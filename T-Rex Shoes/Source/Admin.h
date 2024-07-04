@@ -109,7 +109,7 @@ void EditKatalog() {
 void _K_APrint() {
 
     bersihkanLayar();
-    _K_Print(1);
+    //_K_Print(1);
     cout << "1. Edit\n"
          << "2. Hapus\n"
          << "3. Urutkan\n"
@@ -126,7 +126,7 @@ void _K_APrint() {
         break;
         case 3:
             bersihkanLayar();
-            _K_Print(1);
+            //_K_Print(1);
             menuSort();
             bersihkanLayar();
             _K_APrint();

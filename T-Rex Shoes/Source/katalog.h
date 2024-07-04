@@ -7,8 +7,8 @@
 using namespace std;
 
 // konstruktor
-void _K_Print(int pilihan) ,
-     _K_Menu(int pilihan)  ;
+void _K_Print(int pilihan, int halaman, int urutan) ,
+     _K_Menu(int pilihan, int halaman, int urutan)  ;
 
 //int pil;
 
@@ -36,30 +36,28 @@ void M_KATALOG() {
                 return;
             break;
             case 1:
-                _K_Menu(1);
+                _K_Menu(1, 1, 0);
             break;
             case 2:
-                _K_Menu(2);
+                _K_Menu(2, 1, 0);
             break;
             case 3:
-                _K_Menu(3);
+                _K_Menu(3, 1, 0);
             break;
             case 4:
-                _K_Menu(4);
+                _K_Menu(4, 1, 0);
             break;
             case 5:
-                _K_Menu(5);
-            break;
-            case 6:
-                //__Preorder();
+                _K_Menu(5, 1, 0);
             break;
         }
 }
 
 
 
-void _K_Print(int pilihan) {
-    string pencarian;
+void _K_Print(int pilihan, int halaman, int pengurutan) {
+    string pencarian,
+           urutan[] = {"ID","Merek","Nama","Harga"};
     switch (pilihan) {
         case 1:
             pencarian = "Semua";
@@ -81,14 +79,16 @@ void _K_Print(int pilihan) {
     // cetak tabel
 
    bersihkanLayar();
-    cout << "+---------------------------------------------------------------------+\n"
-         << "|" <<setw(17)<< "Menampilkan " <<left<<setw(20) << pencarian <<right<< setw(34) << "|\n"
+    cout << left
+         << "+---------------------------------------------------------------------+\n"
+         << "| Menampilkan: " <<left<<setw(20) << pencarian <<right<< setw(37) << "|\n"
+         << "| Dengan pengurutan: "<<left<<setw(6) << urutan[pengurutan]<<" ["<<halaman * 10 - 9<<"-"<<halaman * 10<<"]"<<right<<setw(37) << "|\n"
          << "+----+-----------+--------------------+------------+-----------+------+\n"
          << "| ID | Merek     | Nama               | Jenis      | Harga     | stok |\n"
          << "+----+-----------+--------------------+------------+-----------+------+\n"
          << left;
     // cari sepatu yang sama
-    for (int i = 0; i < jumlahSepatu; i++) {
+    for (int i = halaman * 10 - 10; i < halaman * 10; i++) {
         if (pencarian == "Dewasa") {
             if (sepatu[i].kategori == "Dewasa Perempuan" || sepatu[i].kategori == "Dewasa Laki-laki" ){
             cout << "| "
@@ -119,40 +119,63 @@ void _K_Print(int pilihan) {
                  << setw(5) << sepatu[i].stok.jumlah << "|\n";
         }
     }
-    cout << "+----+-----------+--------------------+------------+-----------+------+\n";
+    cout << "+----+-----------+--------------------+------------+-----------+------+\n"
+         << "|    [q] prev     [e] next     [s] sort    [b] beli     [r] kembali   |\n"
+         << "+---------------------------------------------------------------------+\n";
 }
 
 
 
-void _K_Menu(int pilihan) {
+void _K_Menu(int pilihan, int halaman, int urutan) {
+    int hal = halaman;
+    int uru = urutan;
     string IDBeli;
-    _K_Print(pilihan);
+    _K_Print(pilihan, hal, uru);
     char pilih;
-    cout << "Pilih menu:\n"
-         << "1. Beli\n"
-         << "2. Urutkan\n"
-         << "3. Kembali\n";
-
     cout << " -> "; cin >> pilih;
     cin.ignore();
 
-    if (pilih == '1') {
-        cout << "Masukkan \"ID\" Sepatu yang ingin anda beli...";
-        cout << " -> "; getline(cin, IDBeli);
-        for (int i = 0; i < jumlahSepatu; i++) {
-            if (IDBeli == sepatu[i].ID) {
-                TambahKeranjang(sepatu[i]);
+    switch (pilih) {
+        case 'b':
+        case 'B':
+            cout << "Masukkan \"ID\" Sepatu yang ingin anda beli...";
+            cout << " -> "; getline(cin, IDBeli);
+            for (int i = 0; i < jumlahSepatu; i++) {
+                if (IDBeli == sepatu[i].ID) {
+                    TambahKeranjang(sepatu[i]);
+                }
             }
-        }
-        cout << "Barang berhasil dimasukkan kedalam keranjang";
-        getchar();
-    } else if (pilih == '2') {
-        bersihkanLayar();
-        _K_Print(pilihan);
-        menuSort();
-        bersihkanLayar();
-        _K_Menu(pilihan);
+            cout << "Barang berhasil dimasukkan kedalam keranjang";
+            getchar();
+        break;
+
+        case 's':
+        case 'S':
+            bersihkanLayar();
+            _K_Print(pilihan, hal, uru);
+            uru = menuSort();
+            bersihkanLayar();
+            _K_Menu(pilihan, hal, uru);
+        break;
+
+        case 'e':
+        case 'E':
+            if (hal < 4) hal++;
+            _K_Print(pilihan, hal, uru);
+            _K_Menu(pilihan, hal, uru);
+        break;
+        case 'q':
+        case 'Q':
+            if (hal > 1) hal--;
+            _K_Print(pilihan, hal, uru);
+            _K_Menu(pilihan, hal, uru);
+        break;
+        case 'r':
+        case 'R':
+            return;
+        break;
     }
+
     //getchar();
 }
 

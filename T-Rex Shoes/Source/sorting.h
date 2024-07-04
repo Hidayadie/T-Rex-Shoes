@@ -5,25 +5,34 @@
 
 void sortAZ(),
      sortHarga(),
-     sortMerek();
+     sortMerek(),
+     reset()    ;
 
-void menuSort() {
+int menuSort() {
     int pilSort;
     cout << "Apa yang ingin diurutkan?\n"
-         << "1. Merek | 2. Nama | 3. Harga\n"
+         << "1. Reset | 2. Merek | 3. Nama | 4. Harga\n"
          << "-> "; cin >> pilSort;
     cin.ignore();
     switch (pilSort) {
         case 1:
-            sortMerek();
+            reset();
+            return 0;
         break;
         case 2:
-            sortAZ();
+            sortMerek();
+            return 1;
         break;
         case 3:
+            sortAZ();
+            return 2;
+        break;
+        case 4:
             sortHarga();
+            return 3;
         break;
     }
+    return 0;
 }
 
 
