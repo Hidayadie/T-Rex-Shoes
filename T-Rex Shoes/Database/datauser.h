@@ -49,22 +49,21 @@ bool Registrasi() {
     return Login();
 }
 bool Login() {
+
     string nama, pass;
     bersihkanLayar();
     cout << "Silahkan Login terlebih dahulu\n"
          << "Ketik 0 jika Anda belum memiliki akun\n"
          << "Nama: "; getline(cin, nama);
-    if (nama != "0") {
-        cout << "Pass: "; getline(cin, pass);
-        if (user[Cari_User(nama)].Nama == nama &&
-            user[Cari_User(nama)].Password == pass) {
-                return true;
-            }
+    if (nama == "0")
+        return Registrasi();
+    cout << "Pass: "; getline(cin, pass);
+    if (nama == user[Cari_User(nama)].Nama && pass == user[Cari_User(nama)].Password) {
+        userSekarang = user[Cari_User(nama)];
+        return true;
     }
-    if (Cari_User(nama) == -1) {
-        cout << "username tidak ditemukan...";
-    }
-    return Registrasi();
+    cout << "Nama atau Password salah...\n\n";
+    return false;
 
 }
 

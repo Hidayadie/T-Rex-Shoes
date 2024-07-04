@@ -17,9 +17,6 @@
 // katalog.h untuk menampilkan beberapa menu katalog
 // pencarian untuk pencarian, sorting dsb...
 
-// penggunaan namespace std: cerr
-using std::cerr;
-
 
 // fungsi utama
 int main() {
@@ -35,13 +32,6 @@ int main() {
     if (!Login())
         return 1;
 
-    // Dibawah ini adalah fungsi debug, dipakai untuk mengetahui
-    // berapa jumlah sepatu yang berhasil masuk ke program dan
-    // juga siapa user sekarang sekaligus hak akses statusnya
-    cerr << "DEBUG: "
-         << jumlahSepatu << " Terimput...\n"
-         << "Masuk sebagai "<<userSekarang.Nama <<" dengan status " <<userSekarang.Status << "\n";
-         //<< "pada: " << __TIMESTAMP__;
 
     // Menjalankan program T-Rex Shoes
     MAIN_PROGRAM();
@@ -51,13 +41,8 @@ int main() {
 // hanya mengecek siapakah user kali ini, apakah
 // admin, member, atau pedagang/penjual
 void MAIN_PROGRAM() {
-    // fungsi getchar mirip seperti system("pause") yaitu
-    // mengambil input dari keyboard untuk melanjutkan
-    // program ke kode selanjutnya,
-    // ini dipakai untuk menunggu user apakah sudah membaca
-    // tulisan sebelumnya... Dikarenakan selanjutnya akan
-    // dilakukan pembersihan layar dengan kode bersihkanLayar
-    getchar();
+    // fungsi membersihkan layar digunakan untuk
+    // membersihkan layar
     bersihkanLayar();
 
     // reset digunakan untuk mengurutkan ulang database sepatu
