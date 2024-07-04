@@ -119,9 +119,8 @@ void _K_Print(int pilihan, int halaman, int pengurutan) {
                  << setw(5) << sepatu[i].stok.jumlah << "|\n";
         }
     }
-    cout << "+----+-----------+--------------------+------------+-----------+------+\n"
-         << "|    [q] prev     [e] next     [s] sort    [b] beli     [r] kembali   |\n"
-         << "+---------------------------------------------------------------------+\n";
+    cout << "+----+-----------+--------------------+------------+-----------+------+\n";
+
 }
 
 
@@ -131,6 +130,8 @@ void _K_Menu(int pilihan, int halaman, int urutan) {
     int uru = urutan;
     string IDBeli;
     _K_Print(pilihan, hal, uru);
+    cout << "|    [q] prev     [e] next     [s] sort    [b] beli     [r] kembali   |\n"
+         << "+---------------------------------------------------------------------+\n";
     char pilih;
     cout << " -> "; cin >> pilih;
     cin.ignore();

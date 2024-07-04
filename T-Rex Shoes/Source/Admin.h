@@ -5,7 +5,7 @@
 #include "../Database/datauser.h"
 
 void EditKatalog()  ,
-     _K_APrint()    ,
+     _K_APrint(int pilihan, int halaman, int urutan)    ,
      _K_Tambah()    ,
      _K_Edit()      ,
      _K_Hapus()     ,
@@ -81,7 +81,7 @@ void EditKatalog() {
              cin.ignore();
              switch (pil) {
                 case 1:
-                    _K_APrint();
+                    _K_APrint(1,1,1);
                 break;
 
                 case 2:
@@ -106,33 +106,46 @@ void EditKatalog() {
     }
 }
 
-void _K_APrint() {
-
+void _K_APrint(int pilihan, int halaman, int urutan) {
+    int hal = halaman;
+    int uru = urutan;
     bersihkanLayar();
-    //_K_Print(1);
-    cout << "1. Edit\n"
-         << "2. Hapus\n"
-         << "3. Urutkan\n"
-         << "4. Kembali\n"
-         << "-> "; cin >> pil;
+    _K_Print(pilihan, hal, uru);
+
+    cout << "| [q] prev   [e] next   [s] sort   [E] edit   [h] hapus   [r] kembali |\n"
+         << "+---------------------------------------------------------------------+\n"
+         << "-> "; cin >> pilC;
     cin.ignore();
-    switch (pil) {
-        case 1:
+    switch (pilC) {
+        case 'q':
+        case 'Q':
+            if (hal > 1) hal--;
+            _K_Print(pilihan, hal, uru);
+            _K_Menu(pilihan, hal, uru);
+        break;
+        case 'e':
+            if (hal < 4) hal++;
+            _K_Print(pilihan, hal, uru);
+            _K_APrint(pilihan, hal, uru);
+        break;
+        case 'E':
             _K_Edit();
         break;
 
-        case 2:
+        case 'h':
+        case 'H':
             _K_Hapus();
         break;
-        case 3:
+        case 's':
+        case 'S':
             bersihkanLayar();
-            //_K_Print(1);
-            menuSort();
+            _K_Print(pilihan, hal, uru);
+            uru = menuSort();
             bersihkanLayar();
-            _K_APrint();
+            _K_APrint(pilihan, hal, uru);
             return;
         break;
-        case 4:
+        case 'r':
             return;
         break;
     }
