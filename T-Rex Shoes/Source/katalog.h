@@ -15,7 +15,7 @@ void _K_Print(int pilihan) ,
 void M_KATALOG() {
     bersihkanLayar();
     cout<< "+-------------------------------------+\n"
-        << "|                KATALOG              |\n"
+        << "|                "<< Kuning<<"KATALOG"<< RESET<<"              |\n"
         << "+-------------------------------------+\n"
         << "| Selamat datang di katalog, terdapat |\n"
         << "| Banyak pilihan sepatu disini...     |\n"
@@ -50,8 +50,9 @@ void M_KATALOG() {
             case 5:
                 _K_Menu(5);
             break;
-            case 6:
-                //__Preorder();
+            default:
+                cout << Merah << "Pilihan tidak tersedia!" << RESET;
+                getchar();
             break;
         }
 }
@@ -81,45 +82,81 @@ void _K_Print(int pilihan) {
     // cetak tabel
 
    bersihkanLayar();
-    cout << "+---------------------------------------------------------------------+\n"
-         << "|" <<setw(17)<< "Menampilkan " <<left<<setw(20) << pencarian <<right<< setw(34) << "|\n"
-         << "+----+-----------+--------------------+------------+-----------+------+\n"
-         << "| ID | Merek     | Nama               | Jenis      | Harga     | stok |\n"
-         << "+----+-----------+--------------------+------------+-----------+------+\n"
-         << left;
+    cout << "+----------------------------------------------------------------------+\n"
+         << "|" <<setw(17)<< "Menampilkan " <<left<<setw(20) << pencarian <<right<< setw(35) << "|\n"
+         << "+----+-----------+--------------------+------------+-----------+-------+\n"
+         << "| ID | Merek     | Nama               | Jenis      | Harga     | stok  |\n"
+         << "+----+-----------+--------------------+------------+-----------+-------+\n"
+         <<left;
     // cari sepatu yang sama
     for (int i = 0; i < jumlahSepatu; i++) {
         if (pencarian == "Dewasa") {
             if (sepatu[i].kategori == "Dewasa Perempuan" || sepatu[i].kategori == "Dewasa Laki-laki" ){
-            cout << "| "
-                 << setw(3) << sepatu[i].ID     << "| "
-                 << setw(10) << sepatu[i].Merek  << "| "
-                 << setw(19)<< sepatu[i].Nama   << "| "
-                 << setw(11)<< sepatu[i].Jenis  << "| "
-                 << setw(10) << sepatu[i].Harga  << "| "
-                 << setw(5) << sepatu[i].stok.jumlah << "|\n";
+            cout <<"| "
+                 << ((sepatu[i].stok.jumlah == 0) ? Merah : ((sepatu[i].stok.jumlah < 10) ? Kuning : RESET))
+                 << setw(3) << sepatu[i].ID         << RESET << "| "
+                 << ((sepatu[i].stok.jumlah == 0) ? Merah : ((sepatu[i].stok.jumlah < 10) ? Kuning : RESET))
+                 << setw(10) << sepatu[i].Merek     << RESET <<"| "
+                 << ((sepatu[i].stok.jumlah == 0) ? Merah : ((sepatu[i].stok.jumlah < 10) ? Kuning : RESET))
+                 << setw(19)<< sepatu[i].Nama       << RESET <<"| "
+                 << ((sepatu[i].stok.jumlah == 0) ? Merah : ((sepatu[i].stok.jumlah < 10) ? Kuning : RESET))
+                 << setw(11)<< sepatu[i].Jenis      << RESET <<"| "
+                 << ((sepatu[i].stok.jumlah == 0) ? Merah : ((sepatu[i].stok.jumlah < 10) ? Kuning : RESET))
+                 << setw(10) << sepatu[i].Harga     << RESET <<"| "
+                 << ((sepatu[i].stok.jumlah == 0) ? Merah : ((sepatu[i].stok.jumlah < 10) ? Kuning : RESET));
+            if (sepatu[i].stok.jumlah == 0) {
+            cout << setw(6)
+                 << "HABIS"<< RESET <<"|\n";
+            } else {
+            cout << setw(6)
+                 << sepatu[i].stok.jumlah<< RESET <<"|\n";
+            }
 
             }
         } else if (sepatu[i].kategori == pencarian) {
-            cout << "| "
-                 << setw(3) << sepatu[i].ID     << "| "
-                 << setw(10) << sepatu[i].Merek  << "| "
-                 << setw(19)<< sepatu[i].Nama   << "| "
-                 << setw(11)<< sepatu[i].Jenis  << "| "
-                 << setw(10) << sepatu[i].Harga  << "| "
-                 << setw(5) << sepatu[i].stok.jumlah << "|\n";
+            cout <<"| "
+                 << ((sepatu[i].stok.jumlah == 0) ? Merah : ((sepatu[i].stok.jumlah < 10) ? Kuning : RESET))
+                 << setw(3) << sepatu[i].ID         << RESET << "| "
+                 << ((sepatu[i].stok.jumlah == 0) ? Merah : ((sepatu[i].stok.jumlah < 10) ? Kuning : RESET))
+                 << setw(10) << sepatu[i].Merek     << RESET <<"| "
+                 << ((sepatu[i].stok.jumlah == 0) ? Merah : ((sepatu[i].stok.jumlah < 10) ? Kuning : RESET))
+                 << setw(19)<< sepatu[i].Nama       << RESET <<"| "
+                 << ((sepatu[i].stok.jumlah == 0) ? Merah : ((sepatu[i].stok.jumlah < 10) ? Kuning : RESET))
+                 << setw(11)<< sepatu[i].Jenis      << RESET <<"| "
+                 << ((sepatu[i].stok.jumlah == 0) ? Merah : ((sepatu[i].stok.jumlah < 10) ? Kuning : RESET))
+                 << setw(10) << sepatu[i].Harga     << RESET <<"| "
+                 << ((sepatu[i].stok.jumlah == 0) ? Merah : ((sepatu[i].stok.jumlah < 10) ? Kuning : RESET));
+            if (sepatu[i].stok.jumlah == 0) {
+            cout << setw(6)
+                 << "HABIS"<< RESET <<"|\n";
+            } else {
+            cout << setw(6)
+                 << sepatu[i].stok.jumlah<< RESET <<"|\n";
+            }
 
-        } else if (pencarian == "Semua") {
-            cout << "| "
-                 << setw(3) << sepatu[i].ID     << "| "
-                 << setw(10) << sepatu[i].Merek  << "| "
-                 << setw(19)<< sepatu[i].Nama   << "| "
-                 << setw(11)<< sepatu[i].Jenis  << "| "
-                 << setw(10) << sepatu[i].Harga  << "| "
-                 << setw(5) << sepatu[i].stok.jumlah << "|\n";
+        } else if (pencarian == "Semua Sepatu") {
+            cout <<"| "
+                 << ((sepatu[i].stok.jumlah == 0) ? Merah : ((sepatu[i].stok.jumlah < 10) ? Kuning : RESET))
+                 << setw(3) << sepatu[i].ID         << RESET << "| "
+                 << ((sepatu[i].stok.jumlah == 0) ? Merah : ((sepatu[i].stok.jumlah < 10) ? Kuning : RESET))
+                 << setw(10) << sepatu[i].Merek     << RESET <<"| "
+                 << ((sepatu[i].stok.jumlah == 0) ? Merah : ((sepatu[i].stok.jumlah < 10) ? Kuning : RESET))
+                 << setw(19)<< sepatu[i].Nama       << RESET <<"| "
+                 << ((sepatu[i].stok.jumlah == 0) ? Merah : ((sepatu[i].stok.jumlah < 10) ? Kuning : RESET))
+                 << setw(11)<< sepatu[i].Jenis      << RESET <<"| "
+                 << ((sepatu[i].stok.jumlah == 0) ? Merah : ((sepatu[i].stok.jumlah < 10) ? Kuning : RESET))
+                 << setw(10) << sepatu[i].Harga     << RESET <<"| "
+                 << ((sepatu[i].stok.jumlah == 0) ? Merah : ((sepatu[i].stok.jumlah < 10) ? Kuning : RESET));
+            if (sepatu[i].stok.jumlah == 0) {
+            cout << setw(6)
+                 << "HABIS"<< RESET <<"|\n";
+            } else {
+            cout << setw(6)
+                 << sepatu[i].stok.jumlah<< RESET <<"|\n";
+            }
         }
     }
-    cout << "+----+-----------+--------------------+------------+-----------+------+\n";
+    cout << "+----+-----------+--------------------+------------+-----------+-------+\n";
 }
 
 
