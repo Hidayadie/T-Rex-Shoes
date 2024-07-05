@@ -82,7 +82,7 @@ void _K_Print(int pilihan, int halaman, int pengurutan) {
     cout << left
          << "+---------------------------------------------------------------------+\n"
          << "| Menampilkan: " <<left<<setw(20) << pencarian <<right<< setw(37) << "|\n"
-         << "| Dengan pengurutan: "<<left<<setw(6) << urutan[pengurutan]<<" ["<<halaman * 10 - 9<<"-"<<halaman * 10<<"]"<<right<<setw(37) << "|\n"
+         << "| Dengan pengurutan: "<<left<<setw(6) << urutan[pengurutan]<<" ["<<halaman * 10 - 9<<"-"<<halaman * 10<<"]"<<right<<setw(38) << "|\n"
          << "+----+-----------+--------------------+------------+-----------+------+\n"
          << "| ID | Merek     | Nama               | Jenis      | Harga     | stok |\n"
          << "+----+-----------+--------------------+------------+-----------+------+\n"
