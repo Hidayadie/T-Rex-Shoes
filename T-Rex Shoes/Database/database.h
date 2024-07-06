@@ -80,15 +80,26 @@ void bersihkanLayar() {
 
 
 
-const int MAX_ISI       = 50;   // digunakan untuk maksimal database
+const int MAX_ISI       = 80;   // digunakan untuk maksimal database
 
       int pil               ,   // global variabel pilihan
           jumlahSepatu  = 0 ;   // jumlah sepatu yang ada pada program
       char pilC;
-string RunningDesc[] = {"Sepatu Sepatu lari dirancang untuk",
-                        "memberikan kenyamanan dan dukungan",
-                        "saat berlari."};
-string sneakers[] =
+string RunningDesc[]    = {"sepatu serbaguna yang cocok untuk aktivitas",
+                           "sehari-hari. Mereka menawarkan kenyamanan dan",
+                           "gaya tanpa mengorbankan fungsionalitas."};
+string skateDesc[]      = {"Sepatu skate dirancang khusus untuk olahraga",
+                           "skateboarding, dengan sol yang datar dan tahan lama",
+                           "untuk memberikan cengkeraman yang baik pada papan skate."};
+string bootdesc[]       = {"Sepatu boot dirancang untuk memberikan perlindungan",
+                           "dan dukungan ekstra, biasanya memiliki bagian atas yang",
+                           "lebih tinggi untuk melindungi pergelangan kaki. Mereka",
+                           "berat sering digunakan untuk kegiatan outdoor dan",
+                           "pekerjaan serta memiliki sol yang kuat dan tahan lama."};
+string sportsdesc[]     = {"Sepatu olahraga dirancang untuk berbagai aktivitas",
+                           "fisik dan latihan, memberikan dukungan yang tepat",
+                           "dan traksi untuk berbagai jenis permukaan."};
+string casual[] =
 {" _    _",
 "(_\\__/(,_",
 "| \\ `_////-._",
@@ -96,7 +107,33 @@ string sneakers[] =
 "|=====;__/___./",
 "'-'-'-\"\"\"\"\"\"\"`\""};
 
+string sports[] = {
+"       ___",
+"  ___ /`\"\"\"`8-.__",
+"/`\"\"\"`8-.__._    )",
+"\\   ._     ) \"\"\"\"\"",
+"\"\"\"\"  \"\"\"\"\"\""
+};
 
+string skate[] = {
+"    |===|",
+"    |   |",
+"    /  &|",
+".-'`  , )",
+"`\"\"\"\"\"`\"`"
+};
+
+string boots[] = {
+"      ___",
+" ___(|'. `\\",
+"(|'. `\\  ; |",
+"|  : |  ; |",
+"|  ; |.'  |",
+"|.'  |-.  '.",
+"/`-.  '.:_  `'-.",
+"\\   :_  `'-.----'",
+"`\"\"\"` `-----'"
+};
 
 struct Stock {
     int jumlah          ; // jumlah sepatu itu sendiri

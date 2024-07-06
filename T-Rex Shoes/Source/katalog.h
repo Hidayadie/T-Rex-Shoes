@@ -85,12 +85,12 @@ void _K_Print(int pilihan, int halaman, int pengurutan) {
 
    bersihkanLayar();
     cout << left
-         << "+----------------------------------------------------------------------+\n"
-         << "| Menampilkan: " <<left<<setw(20) << pencarian <<right<< setw(38) << "|\n"
-         << "| Dengan pengurutan: "<<left<<setw(6) << urutan[pengurutan]<<" ["<<halaman * 10 - 9<<"-"<<halaman * 10<<"]"<<right<<setw(39) << "|\n"
-         << "+----+-----------+--------------------+------------+-----------+-------+\n"
-         << "| ID | Merek     | Nama               | Jenis      | Harga     | stok  |\n"
-         << "+----+-----------+--------------------+------------+-----------+-------+\n"
+         << "+-----------------------------------------------------------------------+\n"
+         << "| Menampilkan: " <<left<<setw(20) << pencarian <<right<< setw(39) << "|\n"
+         << "| Dengan pengurutan: "<<left<<setw(6) << urutan[pengurutan]<<" ["<< setw(2) << halaman * 10 - 9<<"-"<<halaman * 10<<"]"<<right<<setw(39) << "|\n"
+         << "+----+------------+--------------------+------------+-----------+-------+\n"
+         << "| ID | Merek      | Nama               | Jenis      | Harga     | stok  |\n"
+         << "+----+------------+--------------------+------------+-----------+-------+\n"
          << left;
     // cari sepatu yang sama
     for (int i = halaman * 10 - 10; i < halaman * 10; i++) {
@@ -100,7 +100,7 @@ void _K_Print(int pilihan, int halaman, int pengurutan) {
                  << ((sepatu[i].stok.jumlah == 0) ? Merah : ((sepatu[i].stok.jumlah < 10) ? Kuning : RESET))
                  << setw(3) << sepatu[i].ID         << RESET << "| "
                  << ((sepatu[i].stok.jumlah == 0) ? Merah : ((sepatu[i].stok.jumlah < 10) ? Kuning : RESET))
-                 << setw(10) << sepatu[i].Merek     << RESET <<"| "
+                 << setw(11) << sepatu[i].Merek     << RESET <<"| "
                  << ((sepatu[i].stok.jumlah == 0) ? Merah : ((sepatu[i].stok.jumlah < 10) ? Kuning : RESET))
                  << setw(19)<< sepatu[i].Nama       << RESET <<"| "
                  << ((sepatu[i].stok.jumlah == 0) ? Merah : ((sepatu[i].stok.jumlah < 10) ? Kuning : RESET))
@@ -122,7 +122,7 @@ void _K_Print(int pilihan, int halaman, int pengurutan) {
                  << ((sepatu[i].stok.jumlah == 0) ? Merah : ((sepatu[i].stok.jumlah < 10) ? Kuning : RESET))
                  << setw(3) << sepatu[i].ID         << RESET << "| "
                  << ((sepatu[i].stok.jumlah == 0) ? Merah : ((sepatu[i].stok.jumlah < 10) ? Kuning : RESET))
-                 << setw(10) << sepatu[i].Merek     << RESET <<"| "
+                 << setw(11) << sepatu[i].Merek     << RESET <<"| "
                  << ((sepatu[i].stok.jumlah == 0) ? Merah : ((sepatu[i].stok.jumlah < 10) ? Kuning : RESET))
                  << setw(19)<< sepatu[i].Nama       << RESET <<"| "
                  << ((sepatu[i].stok.jumlah == 0) ? Merah : ((sepatu[i].stok.jumlah < 10) ? Kuning : RESET))
@@ -143,7 +143,7 @@ void _K_Print(int pilihan, int halaman, int pengurutan) {
                  << ((sepatu[i].stok.jumlah == 0) ? Merah : ((sepatu[i].stok.jumlah < 10) ? Kuning : RESET))
                  << setw(3) << sepatu[i].ID         << RESET << "| "
                  << ((sepatu[i].stok.jumlah == 0) ? Merah : ((sepatu[i].stok.jumlah < 10) ? Kuning : RESET))
-                 << setw(10) << sepatu[i].Merek     << RESET <<"| "
+                 << setw(11) << sepatu[i].Merek     << RESET <<"| "
                  << ((sepatu[i].stok.jumlah == 0) ? Merah : ((sepatu[i].stok.jumlah < 10) ? Kuning : RESET))
                  << setw(19)<< sepatu[i].Nama       << RESET <<"| "
                  << ((sepatu[i].stok.jumlah == 0) ? Merah : ((sepatu[i].stok.jumlah < 10) ? Kuning : RESET))
@@ -161,7 +161,7 @@ void _K_Print(int pilihan, int halaman, int pengurutan) {
         }
     }
 
-    cout << "+----+-----------+--------------------+------------+-----------+-------+\n";
+    cout << "+----+------------+--------------------+------------+-----------+-------+\n";
 
 }
 
@@ -172,8 +172,8 @@ void _K_Menu(int pilihan, int halaman, int urutan) {
     int uru = urutan;
     string IDBeli;
     _K_Print(pilihan, hal, uru);
-    cout << "|    [q] prev     [e] next     [s] sort    [b] beli     [r] kembali    |\n"
-         << "+----------------------------------------------------------------------+\n";
+    cout << "|     [q] prev     [e] next     [s] sort    [b] beli     [r] kembali    |\n"
+         << "+-----------------------------------------------------------------------+\n";
     char pilih;
     cout << " -> "; cin >> pilih;
     cin.ignore();
@@ -197,7 +197,7 @@ void _K_Menu(int pilihan, int halaman, int urutan) {
 
         case 'e':
         case 'E':
-            if (hal < 4) hal++;
+            if (hal < jumlahSepatu / 10 + 1) hal++;
             _K_Print(pilihan, hal, uru);
             _K_Menu(pilihan, hal, uru);
         break;
@@ -218,14 +218,51 @@ void _K_Menu(int pilihan, int halaman, int urutan) {
 
 void _K_Sepatu(int indeks) {
     bersihkanLayar();
-    cout << left
-         << "| "<<setw(18) <<sneakers[0] <<  BiruMuda << sepatu[indeks].Nama << "\n" << RESET
-         << "| "<<setw(18) <<sneakers[1] <<  "by: " << sepatu[indeks].Merek << "\n"
-         << "| "<<setw(18) <<sneakers[2] <<  "\n"
-         << "| "<<setw(18) <<sneakers[3] <<  RunningDesc[0] << "\n"
-         << "| "<<setw(18) <<sneakers[4] <<  RunningDesc[1] << "\n"
-         << "| "<<setw(18) <<sneakers[5] <<  RunningDesc[2] << "\n"
-         << "| \n"
+    cout << left;
+    if (sepatu[indeks].Jenis == "Sneakers" ||
+        sepatu[indeks].Jenis == "Walking"  ||
+        sepatu[indeks].Jenis == "Sandals"  ||
+        sepatu[indeks].Jenis == "Casual")  {
+        cout << "| "<<setw(18) <<casual[0] <<  BiruMuda << sepatu[indeks].Nama << "\n" << RESET
+             << "| "<<setw(18) <<casual[1] <<  "by: " << sepatu[indeks].Merek << "\n"
+             << "| "<<setw(18) <<casual[2] <<  "\n"
+             << "| "<<setw(18) <<casual[3] <<  RunningDesc[0] << "\n"
+             << "| "<<setw(18) <<casual[4] <<  RunningDesc[1] << "\n"
+             << "| "<<setw(18) <<casual[5] <<  RunningDesc[2] << "\n";
+    }
+    else if (sepatu[indeks].Jenis == "Skate") {
+        cout << "| "<<setw(18) <<" "      <<  BiruMuda << sepatu[indeks].Nama << "\n" << RESET
+             << "| "<<setw(18) <<skate[0] <<  "by: " << sepatu[indeks].Merek << "\n"
+             << "| "<<setw(18) <<skate[1] <<  "\n"
+             << "| "<<setw(18) <<skate[2] <<  skateDesc[0] << "\n"
+             << "| "<<setw(18) <<skate[3] <<  skateDesc[1] << "\n"
+             << "| "<<setw(18) <<skate[4] <<  skateDesc[2] << "\n";
+             }
+    else if (sepatu[indeks].Jenis == "Boots") {
+        cout << "| "<<setw(18) <<boots[0]      <<  BiruMuda << sepatu[indeks].Nama << "\n" << RESET
+             << "| "<<setw(18) <<boots[1] <<  "by: " << sepatu[indeks].Merek << "\n"
+             << "| "<<setw(18) <<boots[2] <<  "\n"
+             << "| "<<setw(18) <<boots[3] <<  "" << "\n"
+             << "| "<<setw(18) <<boots[4] <<  bootdesc[0] << "\n"
+             << "| "<<setw(18) <<boots[5] <<  bootdesc[1] << "\n"
+             << "| "<<setw(18) <<boots[6] <<  bootdesc[2] <<"\n"
+             << "| "<<setw(18) <<boots[7] <<  bootdesc[3] <<"\n"
+             << "| "<<setw(18) <<boots[8] <<  bootdesc[4] <<"\n";
+    }
+    else if (sepatu[indeks].Jenis == "Sport"    ||
+             sepatu[indeks].Jenis =="Running"   ||
+             sepatu[indeks].Jenis =="Training"  ||
+             sepatu[indeks].Jenis =="Basketball"||
+             sepatu[indeks].Jenis =="Hiking"    ||
+             sepatu[indeks].Jenis =="Hiking")   {
+        cout << "| "<<setw(18) <<" "      <<  BiruMuda << sepatu[indeks].Nama << "\n" << RESET
+             << "| "<<setw(18) <<sports[0] <<  "by: " << sepatu[indeks].Merek << "\n"
+             << "| "<<setw(18) <<sports[1] <<  "\n"
+             << "| "<<setw(18) <<sports[2] <<  sportsdesc[0] << "\n"
+             << "| "<<setw(18) <<sports[3] <<  sportsdesc[1] << "\n"
+             << "| "<<setw(18) <<sports[4] <<  sportsdesc[2] << "\n";
+             }
+    cout << "| \n"
          << "| "<<((sepatu[indeks].stok.jumlah > 5) ? Hijau : (sepatu[indeks].stok.jumlah == 0) ? Merah : Kuning)
          <<    "Stok tersedia: " << sepatu[indeks].stok.jumlah << "\n" << RESET
          << "| Size: ";
@@ -234,14 +271,14 @@ void _K_Sepatu(int indeks) {
                  << ((sepatu[indeks].stok.jumlah > 3) ? Hijau : Merah) << "39 " << RESET
                  << ((sepatu[indeks].stok.jumlah > 1) ? Hijau : Merah) << "40 " << RESET
                  << ((sepatu[indeks].stok.jumlah > 0) ? Hijau : Merah) << "41 " << RESET
-                 << ((sepatu[indeks].stok.jumlah > 4) ? Hijau : Merah) << "42 " << RESET
+                 << ((sepatu[indeks].stok.jumlah > 4) ? Hijau : Merah) << "42 " << RESET;
          }
          else if (sepatu[indeks].kategori == "Anak-anak") {
             cout << ((sepatu[indeks].stok.jumlah > 7) ? Hijau : Merah) << "33 " << RESET
                  << ((sepatu[indeks].stok.jumlah > 3) ? Hijau : Merah) << "34 " << RESET
                  << ((sepatu[indeks].stok.jumlah > 1) ? Hijau : Merah) << "35 " << RESET
                  << ((sepatu[indeks].stok.jumlah > 0) ? Hijau : Merah) << "36 " << RESET
-                 << ((sepatu[indeks].stok.jumlah > 4) ? Hijau : Merah) << "37 " << RESET
+                 << ((sepatu[indeks].stok.jumlah > 4) ? Hijau : Merah) << "37 " << RESET;
          }
     cout << "\n"
          << "| \n"
