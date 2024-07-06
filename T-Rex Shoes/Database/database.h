@@ -12,6 +12,10 @@
 #define Putih "\e[0;37m"
 #define Invis "\e[?25l"
 #define Show "\e[?25h"
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0faa2f48a58999c0371b22db7e0b754ff9225ee3
 // ifdef define diatas adalah preprocessor hanya
 // dibaca oleh kompiler untuk mengecek bagaimana
 // jalannya kode yang akan dibuat kedepannya,
@@ -223,7 +227,7 @@ void Member() {
     do {
         bersihkanLayar();
         cout<< "+-------------------------------+\n"
-            << "|         SELAMAT DATANG        |\n"
+            << "|         "<< Kuning<<"SELAMAT DATANG"<< RESET<<"        |\n"
             << "+-------------------------------+\n"
             << "|Silahkan masukkan pilihan Anda |\n"
             << "+-------------------------------+\n"
@@ -251,6 +255,10 @@ void Member() {
                 break;
                 case 5:
                     return;
+                break;
+                default:
+                    cout << Merah << "Pilihan tidak tersedia!" << RESET;
+                    getchar();
                 break;
             }
     } while (true);
