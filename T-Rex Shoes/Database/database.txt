@@ -28,33 +28,34 @@
 28,Vans,Dewasa Laki-laki,Mexico 66,Sneakers,1500000,38
 29,Vans,Dewasa Perempuan,Maximus,Sneakers,1300000,3
 30,Vans,Anak-anak,Esplar,Sneakers,1400000,8
-31,Zorba,Dewasa Laki-laki,Sprint Runner,Running,2100000,20
-32,Zorba,Dewasa Perempuan,Velocity,Running,2100000,18
-33,Zorba,Anak-anak,Sprint Junior,Running,1800000,12
-34,AeroFlex,Dewasa Laki-laki,Glide Max,Sneakers,1900000,25
-35,AeroFlex,Dewasa Perempuan,Stride,Sneakers,1900000,22
-36,AeroFlex,Anak-anak,Glide Junior,Sneakers,1600000,15
-37,TrailMaster,Dewasa Laki-laki,Explorer Pro,Hiking,2400000,30
-38,TrailMaster,Dewasa Perempuan,TrailBlaze,Hiking,2400000,28
-39,TrailMaster,Anak-anak,Explorer Junior,Hiking,2100000,18
-40,SkyWalker,Dewasa Laki-laki,Elevate Max,Casual,1500000,20
+31,Zorba,Dewasa Laki-laki,Sprint Runner,Running,2100000,0
+32,Zorba,Dewasa Perempuan,Velocity,Running,2100000,11
+33,Zorba,Anak-anak,Sprint Junior,Running,1800000,6
+34,AeroFlex,Dewasa Laki-laki,Glide Max,Sneakers,1900000,13
+35,AeroFlex,Dewasa Perempuan,Stride,Sneakers,1900000,20
+36,AeroFlex,Anak-anak,Glide Junior,Sneakers,1600000,5
+37,TrailMaster,Dewasa Laki-laki,Explorer Pro,Hiking,2400000,31
+38,TrailMaster,Dewasa Perempuan,TrailBlaze,Hiking,2400000,58
+39,TrailMaster,Anak-anak,Explorer Junior,Hiking,2100000,9
+40,SkyWalker,Dewasa Laki-laki,Elevate Max,Casual,1500000,21
 41,SkyWalker,Dewasa Perempuan,SkyLift,Casual,1500000,18
-42,SkyWalker,Anak-anak,Elevate Junior,Casual,1300000,10
-43,SwiftStep,Dewasa Laki-laki,Rapid,Running,1700000,25
-44,SwiftStep,Dewasa Perempuan,Dash Lite,Running,1700000,22
-45,SwiftStep,Anak-anak,Dash Junior,Running,1400000,15
-46,FusionFeet,Dewasa Laki-laki,Alpha Max,Sneakers,1600000,22
-47,FusionFeet,Dewasa Perempuan,Pulse,Sneakers,1600000,20
+42,SkyWalker,Anak-anak,Elevate Junior,Casual,1300000,0
+43,SwiftStep,Dewasa Laki-laki,Rapid,Running,1700000,2
+44,SwiftStep,Dewasa Perempuan,Dash Lite,Running,1700000,12
+45,SwiftStep,Anak-anak,Dash Junior,Running,1400000,43
+46,FusionFeet,Dewasa Laki-laki,Alpha Max,Sneakers,1600000,12
+47,FusionFeet,Dewasa Perempuan,Pulse,Sneakers,1600000,24
 48,FusionFeet,Anak-anak,Alpha Junior,Sneakers,1400000,12
 49,QuantumLeap,Dewasa Laki-laki,Volt Pro,Trail,2000000,18
-50,QuantumLeap,Dewasa Perempuan,Surge,Trail,2000000,16
-51,QuantumLeap,Anak-anak,Volt Junior,Trail,1700000,10
-52,FlexiStride,Dewasa Laki-laki,Voyager,Sandals,900000,25
-53,FlexiStride,Dewasa Perempuan,Wander,Sandals,900000,22
-54,FlexiStride,Anak-anak,Nomad Junior,Sandals,800000,15
-55,LiteStep,Dewasa Laki-laki,Breeze Max,Casual,1300000,20
-56,LiteStep,Dewasa Perempuan,Zephyr,Casual,1300000,18
+50,QuantumLeap,Dewasa Perempuan,Surge,Trail,2000000,6
+51,QuantumLeap,Anak-anak,Volt Junior,Trail,1700000,1
+52,FlexiStride,Dewasa Laki-laki,Voyager,Sandals,900000,5
+53,FlexiStride,Dewasa Perempuan,Wander,Sandals,900000,29
+54,FlexiStride,Anak-anak,Nomad Junior,Sandals,800000,11
+55,LiteStep,Dewasa Laki-laki,Breeze Max,Casual,1300000,0
+56,LiteStep,Dewasa Perempuan,Zephyr,Casual,1300000,8
 57,LiteStep,Anak-anak,Breeze Junior,Casual,1100000,12
 58,HyperWalk,Dewasa Laki-laki,Quantum Max,Sneakers,1900000,25
-59,HyperWalk,Dewasa Perempuan,Nova,Sneakers,1900000,22
-60,HyperWalk,Anak-anak,Quantum Junior,Sneakers,1700000,15
+59,HyperWalk,Dewasa Perempuan,Nova,Sneakers,1900000,2
+60,HyperWalk,Anak-anak,Quantum Junior,Sneakers,1700000,7
+99,ur mom,Anak-anak,Gyatt Sigma,Boots,694200,1

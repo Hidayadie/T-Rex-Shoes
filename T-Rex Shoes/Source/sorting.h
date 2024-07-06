@@ -5,8 +5,7 @@
 
 void sortAZ(),
      sortHarga(),
-     sortMerek(),
-     reset()    ;
+     sortMerek();
 
 int menuSort() {
     int pilSort;

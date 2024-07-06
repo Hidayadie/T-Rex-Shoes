@@ -67,12 +67,13 @@ void TambahKeranjang(Sepatu _sepatu) {
 void M_KERANJANG() {
     if (isEmpty()) {
 
-        cout << "Keranjang anda masih kosong!!!";
+        cout << Merah << "Keranjang anda masih kosong!!!" << RESET;
         getchar();
         return;
     }
     Print();
     cout << "Diatas adalah Daftar Keranjang Anda,\n"
+         << "0. Kembali\n"
          << "1. Checkout Semua\n"
          << "2. Hapus Keranjang\n"
          << "-> ";
@@ -83,8 +84,8 @@ void M_KERANJANG() {
             Checkout();
          } else if (pil == 2) {
             HapusPilihan();
-         } else if (pil == 3) {
-
+         } else if (pil == 0) {
+            return;
          }
 
 

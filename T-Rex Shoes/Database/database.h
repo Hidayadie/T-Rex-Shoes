@@ -45,7 +45,8 @@ void MAIN_PROGRAM()         , // konstruktor main program
      M_KATALOG()            , // fungsi menampilkan menu katalog
      M_PENCARIAN()          , // fungsi pencarian
      M_KERANJANG()          , // fungsi keranjang
-     bersihkanLayar()       ; // fungsi pembersihan layar
+     bersihkanLayar()       , // fungsi pembersihan layar
+     reset()                ;
 
 int  Cari_ID(string _ID)    , // fungsi cari sepatu berdasarkan ID
      Cari_User(string nama) ;
@@ -272,6 +273,7 @@ void M_PROFIL() {
 void Member() {
     do {
         bersihkanLayar();
+        reset();
         cout<< "+-------------------------------+\n"
             << "|         "<< Kuning<<"SELAMAT DATANG"<< RESET<<"        |\n"
             << "+-------------------------------+\n"

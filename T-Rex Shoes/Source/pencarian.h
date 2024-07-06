@@ -48,11 +48,15 @@ void M_PENCARIAN() {
 
     bool found = false;
     bersihkanLayar();
-    cout << "+----+-----------+--------------------+------------+-----------+\n"
-         << "| ID | Merek     | Nama               | Jenis      | Harga     |\n"
-         << "+----+-----------+--------------------+------------+-----------+\n"
-         << left;
 
+    cout << left
+         << "+-----------------------------------------------------------------------+\n"
+         << "| Menampilkan: \""<<setw(20) << keyword + "\"" <<right<< setw(38) << "|\n"
+         << "|                                                                       |\n"
+         << "+----+------------+--------------------+------------+-----------+-------+\n"
+         << "| ID | Merek      | Nama               | Jenis      | Harga     | stok  |\n"
+         << "+----+------------+--------------------+------------+-----------+-------+\n"
+         << left;
     for (int i = 0; i < jumlahSepatu; i++) {
         char namaLower[100];
         strcpy(namaLower, sepatu[i].Nama.c_str());
@@ -63,22 +67,35 @@ void M_PENCARIAN() {
         kecilkanHuruf(merekLower);
 
         if (strstr(namaLower, keywordLower) != NULL || strstr(merekLower, keywordLower) != NULL) {
-            cout << "|"
-                 << setw(4) << sepatu[i].ID << "| "
-                 << setw(10) << sepatu[i].Merek << "| "
-                 << setw(19) << sepatu[i].Nama << "| "
-                 << setw(11) << sepatu[i].Jenis << "| "
-                 << setw(10) << sepatu[i].Harga << "|\n";
+            cout <<"| "
+                 << ((sepatu[i].stok.jumlah == 0) ? Merah : ((sepatu[i].stok.jumlah < 10) ? Kuning : RESET))
+                 << setw(3) << sepatu[i].ID         << RESET << "| "
+                 << ((sepatu[i].stok.jumlah == 0) ? Merah : ((sepatu[i].stok.jumlah < 10) ? Kuning : RESET))
+                 << setw(11) << sepatu[i].Merek     << RESET <<"| "
+                 << ((sepatu[i].stok.jumlah == 0) ? Merah : ((sepatu[i].stok.jumlah < 10) ? Kuning : RESET))
+                 << setw(19)<< sepatu[i].Nama       << RESET <<"| "
+                 << ((sepatu[i].stok.jumlah == 0) ? Merah : ((sepatu[i].stok.jumlah < 10) ? Kuning : RESET))
+                 << setw(11)<< sepatu[i].Jenis      << RESET <<"| "
+                 << ((sepatu[i].stok.jumlah == 0) ? Merah : ((sepatu[i].stok.jumlah < 10) ? Kuning : RESET))
+                 << setw(10) << sepatu[i].Harga     << RESET <<"| "
+                 << ((sepatu[i].stok.jumlah == 0) ? Merah : ((sepatu[i].stok.jumlah < 10) ? Kuning : RESET));
+            if (sepatu[i].stok.jumlah == 0) {
+            cout << setw(6)
+                 << "HABIS"<< RESET <<"|\n";
+            } else {
+            cout << setw(6)
+                 << sepatu[i].stok.jumlah<< RESET <<"|\n";
+            }
             found = true;
         }
     }
 
     if (!found) {
         char ulang;
-        cout << left << setw(15) << "|" <<setw(48) << "Tidak ada hasil yang ditemukan" <<"|\n";
-        cout << "+----+-----------+--------------------+------------+-----------+\n"
-             << "|   Apakah anda ingin melakukan pencarian ulang (y/n)          |\n"
-             << "+--------------------------------------------------------------+\n";
+        cout << left << setw(15) << "|" <<setw(57) << "Tidak ada hasil yang ditemukan" <<"|\n";
+        cout << "+----+------------+--------------------+------------+-----------+-------+\n"
+             << "|      Apakah anda ingin melakukan pencarian ulang (y/n)                |\n"
+             << "+-----------------------------------------------------------------------+\n";
         cout << "-> "; cin >> ulang;
         cin.ignore();
         if (ulang == 'y' || ulang == 'Y') {
@@ -89,9 +106,9 @@ void M_PENCARIAN() {
         }
     }
 
-    cout << "+----+-----------+--------------------+------------+-----------+\n"
-         << "|   Apakah anda ingin membeli dari satu diatas? (y/n)          |\n"
-         << "+--------------------------------------------------------------+\n";
+    cout << "+----+------------+--------------------+------------+-----------+-------+\n"
+         << "|          Apakah anda ingin membeli dari satu diatas? (y/n)            |\n"
+         << "+-----------------------------------------------------------------------+\n";
     cout << " -> "; cin >> beli;
     cin.ignore();
     if (beli == 'y' || beli == 'Y') {
