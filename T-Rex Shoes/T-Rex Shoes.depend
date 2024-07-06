@@ -41,13 +41,7 @@
 	"../Database/database.h"
 	"../Database/datauser.h"
 
-1720080391 source:/home/hidayadie/Github/Repos/T-Rex_Warna/T-Rex-Shoes/T-Rex Shoes/main.cpp
-	"Database/database.h"
-	"Database/datauser.h"
-	"Source/katalog.h"
-	"Source/pencarian.h"
-	"Source/sorting.h"
-	"Source/Admin.h"
+1720277897 source:/home/hidayadie/Github/Repos/T-Rex_Warna/T-Rex-Shoes/T-Rex Shoes/main.cpp
 	"Database/database.h"
 	"Database/datauser.h"
 	"Source/katalog.h"
@@ -55,7 +49,7 @@
 	"Source/sorting.h"
 	"Source/Admin.h"
 
-1720275525 /home/hidayadie/Github/Repos/T-Rex_Warna/T-Rex-Shoes/T-Rex Shoes/Database/database.h
+1720282509 /home/hidayadie/Github/Repos/T-Rex_Warna/T-Rex-Shoes/T-Rex Shoes/Database/database.h
 	<iostream>
 	<fstream>
 	<string>
@@ -65,7 +59,7 @@
 1720275525 /home/hidayadie/Github/Repos/T-Rex_Warna/T-Rex-Shoes/T-Rex Shoes/Database/datauser.h
 	"database.h"
 
-1720275525 /home/hidayadie/Github/Repos/T-Rex_Warna/T-Rex-Shoes/T-Rex Shoes/Source/katalog.h
+1720285650 /home/hidayadie/Github/Repos/T-Rex_Warna/T-Rex-Shoes/T-Rex Shoes/Source/katalog.h
 	"../Database/database.h"
 	"sorting.h"
 	"keranjang.h"
@@ -81,7 +75,7 @@
 	"keranjang.h"
 	"keranjang.h"
 
-1720147002 /home/hidayadie/Github/Repos/T-Rex_Warna/T-Rex-Shoes/T-Rex Shoes/Source/Admin.h
+1720276910 /home/hidayadie/Github/Repos/T-Rex_Warna/T-Rex-Shoes/T-Rex Shoes/Source/Admin.h
 	"../Database/database.h"
 	"../Database/datauser.h"
 

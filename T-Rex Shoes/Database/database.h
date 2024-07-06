@@ -12,10 +12,8 @@
 #define Putih "\e[0;37m"
 #define Invis "\e[?25l"
 #define Show "\e[?25h"
-<<<<<<< HEAD
-=======
 
->>>>>>> 0faa2f48a58999c0371b22db7e0b754ff9225ee3
+
 // ifdef define diatas adalah preprocessor hanya
 // dibaca oleh kompiler untuk mengecek bagaimana
 // jalannya kode yang akan dibuat kedepannya,
@@ -87,6 +85,18 @@ const int MAX_ISI       = 50;   // digunakan untuk maksimal database
       int pil               ,   // global variabel pilihan
           jumlahSepatu  = 0 ;   // jumlah sepatu yang ada pada program
       char pilC;
+string RunningDesc[] = {"Sepatu Sepatu lari dirancang untuk",
+                        "memberikan kenyamanan dan dukungan",
+                        "saat berlari."};
+string sneakers[] =
+{" _    _",
+"(_\\__/(,_",
+"| \\ `_////-._",
+"J_/___\"=> __/`\\",
+"|=====;__/___./",
+"'-'-'-\"\"\"\"\"\"\"`\""};
+
+
 
 struct Stock {
     int jumlah          ; // jumlah sepatu itu sendiri
@@ -172,9 +182,8 @@ bool database_read() {
         // tutup file sepatu
         fileSepatu.close();
         return true;
-    } else {
-        return false;
     }
+    return false;
 }
 
 

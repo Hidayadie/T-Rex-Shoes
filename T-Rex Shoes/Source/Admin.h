@@ -112,8 +112,8 @@ void _K_APrint(int pilihan, int halaman, int urutan) {
     bersihkanLayar();
     _K_Print(pilihan, hal, uru);
 
-    cout << "| [q] prev   [e] next   [s] sort   [E] edit   [h] hapus   [r] kembali |\n"
-         << "+---------------------------------------------------------------------+\n"
+    cout << "| [q] prev   [e] next   [s] sort   [E] edit   [h] hapus   [r] kembali  |\n"
+         << "+----------------------------------------------------------------------+\n"
          << "-> "; cin >> pilC;
     cin.ignore();
     switch (pilC) {

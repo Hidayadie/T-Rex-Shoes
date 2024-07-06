@@ -23,7 +23,6 @@ int main() {
     // jika gagal membaca database -> program berhenti
     if (!datauser_read())
         return 1;
-
     // jika gagal membaca datauser -> program berhenti
     if (!database_read())
         return 1;

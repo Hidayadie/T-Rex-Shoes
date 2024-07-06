@@ -8,7 +8,8 @@ using namespace std;
 
 // konstruktor
 void _K_Print(int pilihan, int halaman, int urutan) ,
-     _K_Menu(int pilihan, int halaman, int urutan)  ;
+     _K_Menu(int pilihan, int halaman, int urutan)  ,
+     _K_Sepatu(int indeks)         ;
 
 //int pil;
 
@@ -48,15 +49,11 @@ void M_KATALOG() {
                 _K_Menu(4, 1, 0);
             break;
             case 5:
-<<<<<<< HEAD
                 _K_Menu(5, 1, 0);
-=======
-                _K_Menu(5);
             break;
             default:
                 cout << Merah << "Pilihan tidak tersedia!" << RESET;
                 getchar();
->>>>>>> 0faa2f48a58999c0371b22db7e0b754ff9225ee3
             break;
         }
 }
@@ -87,23 +84,14 @@ void _K_Print(int pilihan, int halaman, int pengurutan) {
     // cetak tabel
 
    bersihkanLayar();
-<<<<<<< HEAD
     cout << left
-         << "+---------------------------------------------------------------------+\n"
-         << "| Menampilkan: " <<left<<setw(20) << pencarian <<right<< setw(37) << "|\n"
-         << "| Dengan pengurutan: "<<left<<setw(6) << urutan[pengurutan]<<" ["<<halaman * 10 - 9<<"-"<<halaman * 10<<"]"<<right<<setw(38) << "|\n"
-         << "+----+-----------+--------------------+------------+-----------+------+\n"
-         << "| ID | Merek     | Nama               | Jenis      | Harga     | stok |\n"
-         << "+----+-----------+--------------------+------------+-----------+------+\n"
-         << left;
-=======
-    cout << "+----------------------------------------------------------------------+\n"
-         << "|" <<setw(17)<< "Menampilkan " <<left<<setw(20) << pencarian <<right<< setw(35) << "|\n"
+         << "+----------------------------------------------------------------------+\n"
+         << "| Menampilkan: " <<left<<setw(20) << pencarian <<right<< setw(38) << "|\n"
+         << "| Dengan pengurutan: "<<left<<setw(6) << urutan[pengurutan]<<" ["<<halaman * 10 - 9<<"-"<<halaman * 10<<"]"<<right<<setw(39) << "|\n"
          << "+----+-----------+--------------------+------------+-----------+-------+\n"
          << "| ID | Merek     | Nama               | Jenis      | Harga     | stok  |\n"
          << "+----+-----------+--------------------+------------+-----------+-------+\n"
-         <<left;
->>>>>>> 0faa2f48a58999c0371b22db7e0b754ff9225ee3
+         << left;
     // cari sepatu yang sama
     for (int i = halaman * 10 - 10; i < halaman * 10; i++) {
         if (pencarian == "Dewasa") {
@@ -150,7 +138,7 @@ void _K_Print(int pilihan, int halaman, int pengurutan) {
                  << sepatu[i].stok.jumlah<< RESET <<"|\n";
             }
 
-        } else if (pencarian == "Semua Sepatu") {
+        } else if (pencarian == "Semua") {
             cout <<"| "
                  << ((sepatu[i].stok.jumlah == 0) ? Merah : ((sepatu[i].stok.jumlah < 10) ? Kuning : RESET))
                  << setw(3) << sepatu[i].ID         << RESET << "| "
@@ -172,12 +160,9 @@ void _K_Print(int pilihan, int halaman, int pengurutan) {
             }
         }
     }
-<<<<<<< HEAD
-    cout << "+----+-----------+--------------------+------------+-----------+------+\n";
 
-=======
     cout << "+----+-----------+--------------------+------------+-----------+-------+\n";
->>>>>>> 0faa2f48a58999c0371b22db7e0b754ff9225ee3
+
 }
 
 
@@ -187,8 +172,8 @@ void _K_Menu(int pilihan, int halaman, int urutan) {
     int uru = urutan;
     string IDBeli;
     _K_Print(pilihan, hal, uru);
-    cout << "|    [q] prev     [e] next     [s] sort    [b] beli     [r] kembali   |\n"
-         << "+---------------------------------------------------------------------+\n";
+    cout << "|    [q] prev     [e] next     [s] sort    [b] beli     [r] kembali    |\n"
+         << "+----------------------------------------------------------------------+\n";
     char pilih;
     cout << " -> "; cin >> pilih;
     cin.ignore();
@@ -198,13 +183,7 @@ void _K_Menu(int pilihan, int halaman, int urutan) {
         case 'B':
             cout << "Masukkan \"ID\" Sepatu yang ingin anda beli...";
             cout << " -> "; getline(cin, IDBeli);
-            for (int i = 0; i < jumlahSepatu; i++) {
-                if (IDBeli == sepatu[i].ID) {
-                    TambahKeranjang(sepatu[i]);
-                }
-            }
-            cout << "Barang berhasil dimasukkan kedalam keranjang";
-            getchar();
+            _K_Sepatu(Cari_ID(IDBeli));
         break;
 
         case 's':
@@ -234,8 +213,54 @@ void _K_Menu(int pilihan, int halaman, int urutan) {
         break;
     }
 
-    //getchar();
 }
 
+
+void _K_Sepatu(int indeks) {
+    bersihkanLayar();
+    cout << left
+         << "| "<<setw(18) <<sneakers[0] <<  BiruMuda << sepatu[indeks].Nama << "\n" << RESET
+         << "| "<<setw(18) <<sneakers[1] <<  "by: " << sepatu[indeks].Merek << "\n"
+         << "| "<<setw(18) <<sneakers[2] <<  "\n"
+         << "| "<<setw(18) <<sneakers[3] <<  RunningDesc[0] << "\n"
+         << "| "<<setw(18) <<sneakers[4] <<  RunningDesc[1] << "\n"
+         << "| "<<setw(18) <<sneakers[5] <<  RunningDesc[2] << "\n"
+         << "| \n"
+         << "| "<<((sepatu[indeks].stok.jumlah > 5) ? Hijau : (sepatu[indeks].stok.jumlah == 0) ? Merah : Kuning)
+         <<    "Stok tersedia: " << sepatu[indeks].stok.jumlah << "\n" << RESET
+         << "| Size: ";
+         if (sepatu[indeks].kategori == "Dewasa Laki-laki" || sepatu[indeks].kategori =="Dewasa Perempuan") {
+            cout << ((sepatu[indeks].stok.jumlah > 7) ? Hijau : Merah) << "38 " << RESET
+                 << ((sepatu[indeks].stok.jumlah > 3) ? Hijau : Merah) << "39 " << RESET
+                 << ((sepatu[indeks].stok.jumlah > 1) ? Hijau : Merah) << "40 " << RESET
+                 << ((sepatu[indeks].stok.jumlah > 0) ? Hijau : Merah) << "41 " << RESET
+                 << ((sepatu[indeks].stok.jumlah > 4) ? Hijau : Merah) << "42 " << RESET
+         }
+         else if (sepatu[indeks].kategori == "Anak-anak") {
+            cout << ((sepatu[indeks].stok.jumlah > 7) ? Hijau : Merah) << "33 " << RESET
+                 << ((sepatu[indeks].stok.jumlah > 3) ? Hijau : Merah) << "34 " << RESET
+                 << ((sepatu[indeks].stok.jumlah > 1) ? Hijau : Merah) << "35 " << RESET
+                 << ((sepatu[indeks].stok.jumlah > 0) ? Hijau : Merah) << "36 " << RESET
+                 << ((sepatu[indeks].stok.jumlah > 4) ? Hijau : Merah) << "37 " << RESET
+         }
+    cout << "\n"
+         << "| \n"
+         << "| Harga: Rp " << sepatu[indeks].Harga << "\n";
+    if (sepatu[indeks].stok.jumlah > 0) {
+        cout << "| Apakah anda ingin membelinya?\n"
+             << "| (Y/n): "; cin >> pilC;
+        cin.ignore();
+        if (pilC == 'Y' || pilC == 'y') TambahKeranjang(sepatu[indeks]);
+
+    } else {
+        cout << "| " << Merah << "Stok habis...\n" << RESET
+             << "| " << Merah << "Silahkan cek lagi nanti" << RESET;
+             getchar();
+    }
+
+
+
+
+}
 
 #endif // KATALOG_H
