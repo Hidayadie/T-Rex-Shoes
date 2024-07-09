@@ -1,17 +1,6 @@
 #ifndef DATABASE
 #define DATABASE
 
-#define RESET "\e[0m"
-#define Hitam "\e[0;30m"
-#define Merah "\e[0;31m"
-#define Hijau "\e[0;32m"
-#define Kuning "\e[0;33m"
-#define Biru "\e[0;34m"
-#define Ungu "\e[0;35m"
-#define BiruMuda "\e[0;36m"
-#define Putih "\e[0;37m"
-#define Invis "\e[?25l"
-#define Show "\e[?25h"
 
 
 // ifdef define diatas adalah preprocessor hanya
@@ -252,22 +241,21 @@ bool database_update() {
 // fungsi ini digunakan untuk menampilkan halaman profil
 void M_PROFIL() {
     bersihkanLayar();
-    cout << Invis
+    cout
         << "+---------------------------------------------------------------+\n"
-        << "|                        "<<Merah<<"Tentang Kami" <<RESET<<"                           |\n"
+        << "|                        Tentang Kami                           |\n"
         << "+---------------------------------------------------------------+\n"
-        << "| "<<Hijau<<"Trex Shoes CLI, adalah toko sepatu berbasis TUI yang kami "<< RESET<<"    |\n"
-        << "| "<<Hijau<<"Kembangkan sepenuh hati untuk anda yang ingin berbelanja  "<< RESET<<"    |\n"
-        << "| "<<Hijau<<"Sepatu secara minimalis melalui Terminal.                 "<< RESET<<"    |\n"
+        << "| Trex Shoes CLI, adalah toko sepatu berbasis TUI yang kami     |\n"
+        << "| Kembangkan sepenuh hati untuk anda yang ingin berbelanja      |\n"
+        << "| Sepatu secara minimalis melalui Terminal.                     |\n"
         << "+---------------------------------------------------------------+\n"
-        << "|                          "<< Kuning<<"---=+=---"<< RESET<<"                            |\n"
+        << "|                          ---=+=---                            |\n"
         << "| Keluhan dan saran silahkan menghubungi kontak kami dibawah    |\n"
-        << "| Telp "<<Biru<<" +62 8123456789   "<< RESET<<"                                       |\n"
-        << "| Email"<<Biru<<" sepatu_t-rex@rawrrr.co.id     "<< RESET<<"                          |\n"
+        << "| Telp  +62 8123456789                                          |\n"
+        << "| Email sepatu_t-rex@rawrrr.co.id                               |\n"
         << "| Jl. Nusa Keren, no.123, kec Amomo, kab Yahelu, Kayangan       |\n"
         << "+---------------------------------------------------------------+";
     getchar();
-    cout << Show;
 }
 
 void Member() {
@@ -275,7 +263,7 @@ void Member() {
         bersihkanLayar();
         reset();
         cout<< "+-------------------------------+\n"
-            << "|         "<< Kuning<<"SELAMAT DATANG"<< RESET<<"        |\n"
+            << "|         SELAMAT DATANG        |\n"
             << "+-------------------------------+\n"
             << "|Silahkan masukkan pilihan Anda |\n"
             << "+-------------------------------+\n"
@@ -305,7 +293,7 @@ void Member() {
                     return;
                 break;
                 default:
-                    cout << Merah << "Pilihan tidak tersedia!" << RESET;
+                    cout <<"Pilihan tidak tersedia!";
                     getchar();
                 break;
             }

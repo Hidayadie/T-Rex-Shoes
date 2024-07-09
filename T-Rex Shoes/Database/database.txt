@@ -5,7 +5,7 @@
 5,Nike,Dewasa Perempuan,Chuck Taylor,Sneakers,800000,6
 6,Adidas,Anak-anak,574 Core,Running,900000,20
 7,Adidas,Dewasa Laki-laki,Old Skool,Skate,700000,30
-8,Adidas,Dewasa Perempuan,Gel-Kayano,Running,2200000,15
+8,Adidas,Dewasa Perempuan,Gel-Kayano,Running,2200000,14
 9,Adidas,Anak-anak,Disruptor,Sneakers,600000,10
 10,Adidas,Dewasa Laki-laki,GOwalk,Walking,1200000,7
 11,Puma,Dewasa Perempuan,Wave Rider,Running,1900000,12
@@ -14,7 +14,7 @@
 14,Puma,Dewasa Perempuan,Ride 13,Running,2000000,33
 15,Puma,Anak-anak,Air Jordan 1,Basketball,2500000,11
 16,Reebok,Dewasa Laki-laki,Classic Boot,Boots,3000000,0
-17,Reebok,Dewasa Perempuan,Moab 2,Hiking,1800000,25
+17,Reebok,Dewasa Perempuan,Moab 2,Hiking,1800000,24
 18,Reebok,Anak-anak,Clifton 7,Running,1600000,4
 19,Reebok,Dewasa Laki-laki,Speedcross 5,Trail,2300000,15
 20,Reebok,Dewasa Perempuan,Newton Ridge,Hiking,1500000,16

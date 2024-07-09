@@ -67,7 +67,7 @@ void TambahKeranjang(Sepatu _sepatu) {
 void M_KERANJANG() {
     if (isEmpty()) {
 
-        cout << Merah << "Keranjang anda masih kosong!!!" << RESET;
+        cout << "Keranjang anda masih kosong!!!";
         getchar();
         return;
     }

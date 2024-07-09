@@ -67,25 +67,13 @@ void M_PENCARIAN() {
         kecilkanHuruf(merekLower);
 
         if (strstr(namaLower, keywordLower) != NULL || strstr(merekLower, keywordLower) != NULL) {
-            cout <<"| "
-                 << ((sepatu[i].stok.jumlah == 0) ? Merah : ((sepatu[i].stok.jumlah < 10) ? Kuning : RESET))
-                 << setw(3) << sepatu[i].ID         << RESET << "| "
-                 << ((sepatu[i].stok.jumlah == 0) ? Merah : ((sepatu[i].stok.jumlah < 10) ? Kuning : RESET))
-                 << setw(11) << sepatu[i].Merek     << RESET <<"| "
-                 << ((sepatu[i].stok.jumlah == 0) ? Merah : ((sepatu[i].stok.jumlah < 10) ? Kuning : RESET))
-                 << setw(19)<< sepatu[i].Nama       << RESET <<"| "
-                 << ((sepatu[i].stok.jumlah == 0) ? Merah : ((sepatu[i].stok.jumlah < 10) ? Kuning : RESET))
-                 << setw(11)<< sepatu[i].Jenis      << RESET <<"| "
-                 << ((sepatu[i].stok.jumlah == 0) ? Merah : ((sepatu[i].stok.jumlah < 10) ? Kuning : RESET))
-                 << setw(10) << sepatu[i].Harga     << RESET <<"| "
-                 << ((sepatu[i].stok.jumlah == 0) ? Merah : ((sepatu[i].stok.jumlah < 10) ? Kuning : RESET));
-            if (sepatu[i].stok.jumlah == 0) {
-            cout << setw(6)
-                 << "HABIS"<< RESET <<"|\n";
-            } else {
-            cout << setw(6)
-                 << sepatu[i].stok.jumlah<< RESET <<"|\n";
-            }
+            cout << "| "
+                 << setw(3) << sepatu[i].ID     << "| "
+                 << setw(11) << sepatu[i].Merek  << "| "
+                 << setw(19)<< sepatu[i].Nama   << "| "
+                 << setw(11)<< sepatu[i].Jenis  << "| "
+                 << setw(10) << sepatu[i].Harga  << "| "
+                 << setw(6) << sepatu[i].stok.jumlah << "|\n";
             found = true;
         }
     }
@@ -114,18 +102,9 @@ void M_PENCARIAN() {
     if (beli == 'y' || beli == 'Y') {
         cout << "Masukkan \"ID\" Sepatu yang ingin anda beli...";
         cout << " -> "; getline(cin, IDBeli);
-        for (int i = 0; i < jumlahSepatu; i++) {
-            if (IDBeli == sepatu[i].ID) {
-                //TambahKeranjang(sepatu[i]);
-                #ifdef KERANJANG_H
-                TambahKeranjang(sepatu[i]);
-                cout << "BRUH";
-                getchar();
-                #endif // KERANJANG_H
-            }
+        if (Cari_ID(IDBeli) != -1) {
+            _K_Sepatu(Cari_ID(IDBeli));
         }
-        cout << "Barang berhasil dimasukkan kedalam keranjang";
-        getchar();
     }
 }
 

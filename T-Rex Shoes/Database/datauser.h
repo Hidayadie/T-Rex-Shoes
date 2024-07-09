@@ -41,7 +41,7 @@ bool Registrasi() {
             break;
         } else {
             bersihkanLayar();
-            cout << Merah <<"Maaf password tidak sinkron, silahkan coba ulang\n" << Hitam;
+            cout << "Maaf password tidak sinkron, silahkan coba ulang\n";
 
         }
     } while (true);
@@ -62,7 +62,7 @@ bool Login() {
         userSekarang = user[Cari_User(nama)];
         return true;
     }
-    cout <<Merah<< "Nama atau Password salah..." << Hitam;
+    cout << "Nama atau Password salah...";
     return false;
 
 }
