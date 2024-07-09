@@ -158,6 +158,7 @@ void _K_Menu(int pilihan, int halaman, int urutan) {
                 uru = menuSort();
                 bersihkanLayar();
                 _K_Menu(pilihan, hal, uru);
+                return;
             break;
 
             case 'e':
@@ -165,12 +166,14 @@ void _K_Menu(int pilihan, int halaman, int urutan) {
                 if (hal < jumlahSepatu / 10 + 1) hal++;
                 _K_Print(pilihan, hal, uru);
                 _K_Menu(pilihan, hal, uru);
+                return;
             break;
             case 'q':
             case 'Q':
                 if (hal > 1) hal--;
                 _K_Print(pilihan, hal, uru);
                 _K_Menu(pilihan, hal, uru);
+                return;
             break;
             case 'r':
             case 'R':

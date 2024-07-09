@@ -63,6 +63,7 @@ void Admin() {
 
 void EditKatalog() {
     while (true) {
+        reset();
         bersihkanLayar();
         cout << "+-------------------------------------+\n"
              << "|             EDIT KATALOG            |\n"
@@ -109,45 +110,50 @@ void EditKatalog() {
 void _K_APrint(int pilihan, int halaman, int urutan) {
     int hal = halaman;
     int uru = urutan;
-    bersihkanLayar();
-    _K_Print(pilihan, hal, uru);
+    while (true) {
+        bersihkanLayar();
+        _K_Print(pilihan, hal, uru);
 
-    cout << "|  [q] prev   [e] next   [s] sort   [E] edit   [h] hapus   [r] kembali  |\n"
-         << "+-----------------------------------------------------------------------+\n"
-         << "-> "; cin >> pilC;
-    cin.ignore();
-    switch (pilC) {
-        case 'q':
-        case 'Q':
-            if (hal > 1) hal--;
-            _K_Print(pilihan, hal, uru);
-            _K_Menu(pilihan, hal, uru);
-        break;
-        case 'e':
-            if (hal < 4) hal++;
-            _K_Print(pilihan, hal, uru);
-            _K_APrint(pilihan, hal, uru);
-        break;
-        case 'E':
-            _K_Edit();
-        break;
+        cout << "|  [q] prev   [e] next   [s] sort   [E] edit   [h] hapus   [r] kembali  |\n"
+             << "+-----------------------------------------------------------------------+\n"
+             << "-> "; cin >> pilC;
+        cin.ignore();
+        switch (pilC) {
+            case 'q':
+            case 'Q':
+                if (hal > 1) hal--;
+                _K_Print(pilihan, hal, uru);
+                _K_Menu(pilihan, hal, uru);
+                return;
+            break;
+            case 'e':
+                if (hal < jumlahSepatu / 10 + 1) hal++;
+                _K_Print(pilihan, hal, uru);
+                _K_APrint(pilihan, hal, uru);
+                return;
+            break;
+            case 'E':
+                _K_Edit();
+            break;
 
-        case 'h':
-        case 'H':
-            _K_Hapus();
-        break;
-        case 's':
-        case 'S':
-            bersihkanLayar();
-            _K_Print(pilihan, hal, uru);
-            uru = menuSort();
-            bersihkanLayar();
-            _K_APrint(pilihan, hal, uru);
-            return;
-        break;
-        case 'r':
-            return;
-        break;
+            case 'h':
+            case 'H':
+                _K_Hapus();
+            break;
+            case 's':
+            case 'S':
+                bersihkanLayar();
+                _K_Print(pilihan, hal, uru);
+                uru = menuSort();
+                bersihkanLayar();
+                _K_APrint(pilihan, hal, uru);
+                return;
+            break;
+            case 'r':
+            case 'R':
+                return;
+            break;
+        }
     }
 }
 
