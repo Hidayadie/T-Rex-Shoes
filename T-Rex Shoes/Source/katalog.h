@@ -223,31 +223,31 @@ void _K_Sepatu(int indeks) {
         sepatu[indeks].Jenis == "Walking"  ||
         sepatu[indeks].Jenis == "Sandals"  ||
         sepatu[indeks].Jenis == "Casual")  {
-        cout << "| "<<setw(18) <<casual[0] <<  BiruMuda << sepatu[indeks].Nama << "\n" << RESET
-             << "| "<<setw(18) <<casual[1] <<  "by: " << sepatu[indeks].Merek << "\n"
-             << "| "<<setw(18) <<casual[2] <<  "\n"
-             << "| "<<setw(18) <<casual[3] <<  RunningDesc[0] << "\n"
-             << "| "<<setw(18) <<casual[4] <<  RunningDesc[1] << "\n"
-             << "| "<<setw(18) <<casual[5] <<  RunningDesc[2] << "\n";
+        cout << "| "<<setw(19) <<casual[0] <<  BiruMuda << sepatu[indeks].Nama << "\n" << RESET
+             << "| "<<setw(19) <<casual[1] <<  "by: " << sepatu[indeks].Merek << "\n"
+             << "| "<<setw(19) <<casual[2] <<  "\n"
+             << "| "<<setw(19) <<casual[3] <<  RunningDesc[0] << "\n"
+             << "| "<<setw(19) <<casual[4] <<  RunningDesc[1] << "\n"
+             << "| "<<setw(19) <<casual[5] <<  RunningDesc[2] << "\n";
     }
     else if (sepatu[indeks].Jenis == "Skate") {
-        cout << "| "<<setw(18) <<" "      <<  BiruMuda << sepatu[indeks].Nama << "\n" << RESET
-             << "| "<<setw(18) <<skate[0] <<  "by: " << sepatu[indeks].Merek << "\n"
-             << "| "<<setw(18) <<skate[1] <<  "\n"
-             << "| "<<setw(18) <<skate[2] <<  skateDesc[0] << "\n"
-             << "| "<<setw(18) <<skate[3] <<  skateDesc[1] << "\n"
-             << "| "<<setw(18) <<skate[4] <<  skateDesc[2] << "\n";
+        cout << "| "<<setw(19) <<" "      <<  BiruMuda << sepatu[indeks].Nama << "\n" << RESET
+             << "| "<<setw(19) <<skate[0] <<  "by: " << sepatu[indeks].Merek << "\n"
+             << "| "<<setw(19) <<skate[1] <<  "\n"
+             << "| "<<setw(19) <<skate[2] <<  skateDesc[0] << "\n"
+             << "| "<<setw(19) <<skate[3] <<  skateDesc[1] << "\n"
+             << "| "<<setw(19) <<skate[4] <<  skateDesc[2] << "\n";
              }
     else if (sepatu[indeks].Jenis == "Boots") {
-        cout << "| "<<setw(18) <<boots[0]      <<  BiruMuda << sepatu[indeks].Nama << "\n" << RESET
-             << "| "<<setw(18) <<boots[1] <<  "by: " << sepatu[indeks].Merek << "\n"
-             << "| "<<setw(18) <<boots[2] <<  "\n"
-             << "| "<<setw(18) <<boots[3] <<  "" << "\n"
-             << "| "<<setw(18) <<boots[4] <<  bootdesc[0] << "\n"
-             << "| "<<setw(18) <<boots[5] <<  bootdesc[1] << "\n"
-             << "| "<<setw(18) <<boots[6] <<  bootdesc[2] <<"\n"
-             << "| "<<setw(18) <<boots[7] <<  bootdesc[3] <<"\n"
-             << "| "<<setw(18) <<boots[8] <<  bootdesc[4] <<"\n";
+        cout << "| "<<setw(19) <<boots[0]      <<  BiruMuda << sepatu[indeks].Nama << "\n" << RESET
+             << "| "<<setw(19) <<boots[1] <<  "by: " << sepatu[indeks].Merek << "\n"
+             << "| "<<setw(19) <<boots[2] <<  "\n"
+             << "| "<<setw(19) <<boots[3] <<  "" << "\n"
+             << "| "<<setw(19) <<boots[4] <<  bootdesc[0] << "\n"
+             << "| "<<setw(19) <<boots[5] <<  bootdesc[1] << "\n"
+             << "| "<<setw(19) <<boots[6] <<  bootdesc[2] <<"\n"
+             << "| "<<setw(19) <<boots[7] <<  bootdesc[3] <<"\n"
+             << "| "<<setw(19) <<boots[8] <<  bootdesc[4] <<"\n";
     }
     else if (sepatu[indeks].Jenis == "Sport"    ||
              sepatu[indeks].Jenis =="Running"   ||
@@ -255,12 +255,12 @@ void _K_Sepatu(int indeks) {
              sepatu[indeks].Jenis =="Basketball"||
              sepatu[indeks].Jenis =="Hiking"    ||
              sepatu[indeks].Jenis =="Hiking")   {
-        cout << "| "<<setw(18) <<" "      <<  BiruMuda << sepatu[indeks].Nama << "\n" << RESET
-             << "| "<<setw(18) <<sports[0] <<  "by: " << sepatu[indeks].Merek << "\n"
-             << "| "<<setw(18) <<sports[1] <<  "\n"
-             << "| "<<setw(18) <<sports[2] <<  sportsdesc[0] << "\n"
-             << "| "<<setw(18) <<sports[3] <<  sportsdesc[1] << "\n"
-             << "| "<<setw(18) <<sports[4] <<  sportsdesc[2] << "\n";
+        cout << "| "<<setw(19) <<" "      <<  BiruMuda << sepatu[indeks].Nama << "\n" << RESET
+             << "| "<<setw(19) <<sports[0] <<  "by: " << sepatu[indeks].Merek << "\n"
+             << "| "<<setw(19) <<sports[1] <<  "\n"
+             << "| "<<setw(19) <<sports[2] <<  sportsdesc[0] << "\n"
+             << "| "<<setw(19) <<sports[3] <<  sportsdesc[1] << "\n"
+             << "| "<<setw(19) <<sports[4] <<  sportsdesc[2] << "\n";
              }
     cout << "| \n"
          << "| "<<((sepatu[indeks].stok.jumlah > 5) ? Hijau : (sepatu[indeks].stok.jumlah == 0) ? Merah : Kuning)
