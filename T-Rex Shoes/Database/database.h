@@ -24,6 +24,8 @@
 #include <string>   // untuk standar string
 #include <iomanip>  // untuk setw()
 #include <cstring>  // untuk strcpy
+#include <cstdlib>
+
 
 using namespace std;
 
@@ -74,7 +76,9 @@ const int MAX_ISI       = 80;   // digunakan untuk maksimal database
 
       int pil               ,   // global variabel pilihan
           jumlahSepatu  = 0 ;   // jumlah sepatu yang ada pada program
-      char pilC;
+      char pilC             ;
+
+string status[]         = {"Baik", "Kotor", "Lecet (Tdk terlihat)", "Baru", "Bekas like new"};
 string RunningDesc[]    = {"sepatu serbaguna yang cocok untuk aktivitas",
                            "sehari-hari. Mereka menawarkan kenyamanan dan",
                            "gaya tanpa mengorbankan fungsionalitas."};
@@ -126,7 +130,7 @@ string boots[] = {
 };
 
 struct Stock {
-    int jumlah          ; // jumlah sepatu itu sendiri
+    int jumlah = -1     ; // jumlah sepatu itu sendiri (stack top)
     string kondisi[100] ; // Implementasian stack berada pada
                           // string kondisi yang dimana setiap
                           // satuan sepatu memiliki kondisinya
@@ -203,6 +207,14 @@ bool database_read() {
                sepatu[jumlahSepatu].Jenis       =   _Jenis   ;
                sepatu[jumlahSepatu].Harga       =   _Harga   ;
                sepatu[jumlahSepatu].stok.jumlah =   _stok    ;
+
+               if (_stok > 0) {
+                    for (int i = 0; i < _stok; i++) {
+                        pil = rand() % (sizeof(status)/ sizeof(status[0]));
+                        sepatu[jumlahSepatu].stok.kondisi[i] = status[pil];
+
+                    }
+               }
                // naikkan iterator
                jumlahSepatu++;
         }

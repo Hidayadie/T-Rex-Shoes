@@ -257,6 +257,10 @@ void _K_Sepatu(int indeks) {
              << "| (Y/n): "; cin >> pilC;
         cin.ignore();
         if (pilC == 'Y' || pilC == 'y') {
+            for (int i = 0; i < sepatu[indeks].stok.jumlah; i++) {
+                cout << i + 1 << ". "<< sepatu[indeks].stok.kondisi[i] << "\n";
+            }
+            getchar();
             TambahKeranjang(sepatu[indeks]);
             cout << "Barang berhasil dimasukkan ke keranjang...";
             getchar();

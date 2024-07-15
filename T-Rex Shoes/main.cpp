@@ -20,6 +20,7 @@
 
 // fungsi utama
 int main() {
+
     // jika gagal membaca database -> program berhenti
     if (!datauser_read())
         return 1;

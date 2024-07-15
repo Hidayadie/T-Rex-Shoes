@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1720500777 source:/home/hidayadie/Github/Repos/T-Rex-Shoes/T-Rex Shoes/main.cpp
+1721024304 source:/home/hidayadie/Github/Repos/T-Rex-Shoes/T-Rex Shoes/main.cpp
 	"Database/database.h"
 	"Database/datauser.h"
 	"Source/katalog.h"
@@ -13,14 +13,15 @@
 	<iomanip>
 	<fstream>
 
-1720500985 /home/hidayadie/Github/Repos/T-Rex-Shoes/T-Rex Shoes/Database/database.h
+1721024799 /home/hidayadie/Github/Repos/T-Rex-Shoes/T-Rex Shoes/Database/database.h
 	<iostream>
 	<fstream>
 	<string>
 	<iomanip>
 	<cstring>
+	<cstdlib>
 
-1720502658 /home/hidayadie/Github/Repos/T-Rex-Shoes/T-Rex Shoes/Source/katalog.h
+1721024683 /home/hidayadie/Github/Repos/T-Rex-Shoes/T-Rex Shoes/Source/katalog.h
 	"../Database/database.h"
 	"sorting.h"
 	"keranjang.h"
