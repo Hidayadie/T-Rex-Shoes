@@ -20,7 +20,7 @@ void Admin() {
     do {
         bersihkanLayar();
         cout << "+-------------------------------+\n"
-             << "|         SELAMAT DATANG        |\n"
+             << "|         "<<BiruMuda<<"SELAMAT DATANG"<<RESET<<"        |\n"
              << "+-------------------------------+\n"
              << "|Silahkan masukkan pilihan Anda |\n"
              << "+-------------------------------+\n"
@@ -65,7 +65,7 @@ void EditKatalog() {
     while (true) {
         bersihkanLayar();
         cout << "+-------------------------------------+\n"
-             << "|             EDIT KATALOG            |\n"
+             << "|             "<<BiruMuda<<"EDIT KATALOG"<<RESET<<"            |\n"
              << "+-------------------------------------+\n"
              << "| Edit Nama, Jumlah dan stok sepatu   |\n"
              << "| Melalui menu ini, pilih salah satu  |\n"
@@ -323,7 +323,7 @@ void EditUser() {
     while (true) {
         bersihkanLayar();
         cout << "+-------------------------------------+\n"
-             << "|              EDIT USER              |\n"
+             << "|              "<<BiruMuda<<"EDIT USER"<<RESET<<"              |\n"
              << "+-------------------------------------+\n"
              << "| Edit Nama, Reset Password, ataupun  |\n"
              << "| ubah hak akses melalui menu ini     |\n"
@@ -373,9 +373,12 @@ void _U_APrint() {
     for (int i = 0; i < jumlahUser; i++) {
         cout << "| " << left
              << setw(3) << i + 1 << "| "
-             << setw(25) << user[i].Nama << "| "
-             << setw(18) << user[i].Password << "| "
-             << setw(12) << user[i].Status << "|\n";
+             << (user[i].Status == "Admin" ? Hijau : RESET)
+             << setw(25) << user[i].Nama        << RESET <<"| "
+             << (user[i].Status == "Admin" ? Hijau : RESET)
+             << setw(18) << user[i].Password    << RESET <<"| "
+             << (user[i].Status == "Admin" ? Hijau : RESET)
+             << setw(12) << user[i].Status      << RESET <<"|\n";
     }
     cout << "+----+--------------------------+-------------------+-------------+\n";
     cout << "1. Tambah\n"

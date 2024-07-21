@@ -7,7 +7,9 @@ struct User {
     string Nama     ,
            Password ,
            Status   ,
-           join     ;
+           join     ,
+           Bank     ,
+           Norek    ;
 };
 
 User user[MAX_ISI],
@@ -77,16 +79,22 @@ bool datauser_read() {
         string nama     ,
            pass     ,
            status   ,
-           tanggal  ;
-        while(getline(fileUser, nama, ','   )) {
-              getline(fileUser, pass, ','   )  ;
-              getline(fileUser, status, ',' )  ;
-              getline(fileUser, tanggal)       ;
+           tanggal  ,
+           bank     ,
+           norek    ;
+        while(getline(fileUser, nama    , ','   )) {
+              getline(fileUser, pass    , ','   )  ;
+              getline(fileUser, status  , ','   )  ;
+              getline(fileUser, tanggal , ','   )  ;
+              getline(fileUser, bank    , ','   )  ;
+              getline(fileUser, norek           )  ;
 
-              user[jumlahUser].Nama = nama      ;
-              user[jumlahUser].Password = pass  ;
-              user[jumlahUser].Status = status  ;
-              user[jumlahUser].join = tanggal   ;
+              user[jumlahUser].Nama     = nama      ;
+              user[jumlahUser].Password = pass      ;
+              user[jumlahUser].Status   = status    ;
+              user[jumlahUser].join     = tanggal   ;
+              user[jumlahUser].Bank     = bank      ;
+              user[jumlahUser].Norek    =   norek   ;
 
               jumlahUser++;
 
@@ -103,11 +111,13 @@ bool datauser_add(string nama, string pass) {
     fileUser.open("Database/datauser.txt", ios::app);
 
     if (fileUser.is_open()) {
-        fileUser << nama << ',' << pass << ',' << "Member" << ',' <<__TIMESTAMP__ << "\n";
+        fileUser << nama << ',' << pass << ',' << "Member" << ',' <<__TIMESTAMP__ <<",,"<< "\n";
         user[jumlahUser].Nama = nama;
         user[jumlahUser].Password = pass;
         user[jumlahUser].Status = "Member";
         user[jumlahUser].join = __TIMESTAMP__;
+        user[jumlahUser].Bank = "";
+        user[jumlahUser].Norek = "";
         jumlahUser++;
     } else {
         fileUser.close();
@@ -126,7 +136,11 @@ bool datauser_update() {
             fileUser << user[i].Nama        << ','
                      << user[i].Password    << ','
                      << user[i].Status      << ','
-                     << user[i].join        << "\n";
+                     << user[i].join        << ','
+                     << user[i].Bank        << ','
+                     << user[i].Norek       << "\n";
+
+
         }
     } else {
         fileUser.close();

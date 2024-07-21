@@ -1,7 +1,7 @@
 1,Nike,Dewasa Laki-laki,Air Max 270,Sneakers,2100000,9
 2,Nike,Dewasa Perempuan,Ultraboost,Running,2500000,3
 3,Nike,Anak-anak,Future Rider,Sport,1200000,10
-4,Nike,Dewasa Laki-laki,Nano X1,Training,1800000,0
+4,Nike,Dewasa Laki-laki,Nano X1,Training,1800000,15
 5,Nike,Dewasa Perempuan,Chuck Taylor,Sneakers,800000,6
 6,Adidas,Anak-anak,574 Core,Running,900000,20
 7,Adidas,Dewasa Laki-laki,Old Skool,Skate,700000,30
@@ -21,7 +21,7 @@
 21,Converse,Anak-anak,Carnaby Evo,Sneakers,1200000,37
 22,Converse,Dewasa Laki-laki,Pure,Skate,900000,22
 23,Converse,Dewasa Perempuan,Newport H2,Sandals,1300000,10
-24,Converse,Anak-anak,Desert Boot,Boots,1100000,14
+24,Converse,Anak-anak,Desert Boot,Boots,1100000,12
 25,Converse,Dewasa Laki-laki,Arizona,Sandals,1000000,47
 26,Vans,Dewasa Perempuan,Classic,Casual,800000,30
 27,Vans,Anak-anak,Classic Clog,Casual,500000,26
@@ -42,7 +42,7 @@
 42,SkyWalker,Anak-anak,Elevate Junior,Casual,1300000,0
 43,SwiftStep,Dewasa Laki-laki,Rapid,Running,1700000,2
 44,SwiftStep,Dewasa Perempuan,Dash Lite,Running,1700000,12
-45,SwiftStep,Anak-anak,Dash Junior,Running,1400000,43
+45,SwiftStep,Anak-anak,Dash Junior,Running,1400000,41
 46,FusionFeet,Dewasa Laki-laki,Alpha Max,Sneakers,1600000,12
 47,FusionFeet,Dewasa Perempuan,Pulse,Sneakers,1600000,24
 48,FusionFeet,Anak-anak,Alpha Junior,Sneakers,1400000,12
@@ -59,3 +59,4 @@
 59,HyperWalk,Dewasa Perempuan,Nova,Sneakers,1900000,2
 60,HyperWalk,Anak-anak,Quantum Junior,Sneakers,1700000,7
 99,ur mom,Anak-anak,Gyatt Sigma,Boots,694200,1
+86,Tdk tahu,Dewasa Laki-laki,Siap pan nam,Boot,86000,5

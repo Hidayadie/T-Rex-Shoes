@@ -32,7 +32,8 @@ int nomor = 1;
 void TambahKeranjang(Sepatu _sepatu),     // fungsi tambah node baru di head
      HapusPilihan(),              // fungsi hapus node dari head
      Checkout(),              // hapus semua node
-     Print();                   // cetak semua isi node
+     Print(),                   // cetak semua isi node
+     MetodeBayar();
 
 
 
@@ -72,10 +73,16 @@ void M_KERANJANG() {
         return;
     }
     Print();
-    cout << "Diatas adalah Daftar Keranjang Anda,\n"
+    cout << ((userSekarang.Bank == "" || userSekarang.Norek == "") ? Merah : Hijau)
+         << ((userSekarang.Bank == "" || userSekarang.Norek == "")
+         ? "Anda belum menambahkan Metode Pembayaran"
+         : "Pembayaran dengan " + userSekarang.Bank + ": " + userSekarang.Norek);
+    cout << RESET << "\n"
+         << "Diatas adalah Daftar Keranjang Anda,\n"
          << "0. Kembali\n"
          << "1. Checkout Semua\n"
          << "2. Hapus Keranjang\n"
+         << "3. Opsi Pembayaran\n"
          << "-> ";
     cin >> pil;
          cin.ignore();
@@ -84,6 +91,8 @@ void M_KERANJANG() {
             Checkout();
          } else if (pil == 2) {
             HapusPilihan();
+         } else if (pil == 3) {
+            MetodeBayar();
          } else if (pil == 0) {
             return;
          }
@@ -94,35 +103,42 @@ void M_KERANJANG() {
 
 void Checkout() {
     char pil;
-    cout << "Anda akan Men-Checkout keseluruhan keranjang\n"
-         << "Total keseluruhan yang harus dibayar Rp " << total
-         << "\nCheckout? (y/n): "; cin >> pil;
-    cin.ignore();
-    if (pil == 'Y' || pil == 'y') {
-        cout << "Terimakasih sudah berbelanja..";
-        tumbal = head;
-        while (tumbal != NULL) {
-            sepatu[Cari_ID(tumbal->data.ID)].stok.kondisi[sepatu[Cari_ID(tumbal->data.ID)].stok.jumlah] = false; //hehehehhe maap
-            sepatu[Cari_ID(tumbal->data.ID)].stok.jumlah--;
-            setelah = tumbal;
-            tumbal = tumbal->next;
-            delete setelah;
-        }
-        jumlah = 0;
-        head = NULL;
-        tail = NULL;
+    if (userSekarang.Bank != "" && userSekarang.Norek != "") {
+        cout << "Anda akan Men-Checkout keseluruhan keranjang\n"
+             << "Total keseluruhan yang harus dibayar Rp " << total
+             << "\nCheckout? (y/n): "; cin >> pil;
+        cin.ignore();
+        if (pil == 'Y' || pil == 'y') {
 
-        total = 0;
-        nomor = 1;
+            cout << "Terimakasih sudah berbelanja..";
+            tumbal = head;
+            while (tumbal != NULL) {
+                sepatu[Cari_ID(tumbal->data.ID)].stok.kondisi[sepatu[Cari_ID(tumbal->data.ID)].stok.jumlah] = false; //hehehehhe maap
+                sepatu[Cari_ID(tumbal->data.ID)].stok.jumlah--;
+                setelah = tumbal;
+                tumbal = tumbal->next;
+                delete setelah;
+            }
+            jumlah = 0;
+            head = NULL;
+            tail = NULL;
+
+            total = 0;
+            nomor = 1;
+            getchar();
+        } else if (pil == 'n' || pil == 'N') {
+            M_KERANJANG();
+            return;
+        }
+        database_update();
+    } else {
+        cout << Merah << "Silahkan lengkapi data pembayaran Anda terlebih dahulu..." << RESET;
         getchar();
-    } else if (pil == 'n' || pil == 'N') {
-        M_KERANJANG();
-        return;
     }
-    database_update();
 }
 
 void HapusPilihan() {
+    total = 0;
     int _nomor;
     bersihkanLayar();
     Print();
@@ -175,7 +191,7 @@ void HapusPilihan() {
 
 
 void Print() {
-
+    total = 0;
     bersihkanLayar();
     cout << "+--------------------------------------------------------------+\n"
          << "|                            KERANJANG                         |\n"
@@ -201,6 +217,24 @@ void Print() {
     cout << "+----+-----------+--------------------+------------+-----------+\n"
          << "|                                         TOTAL    | Rp"<<setw(8)<< left << total<<"|\n"
          << "+--------------------------------------------------+-----------+\n";
+
+    //total = 0;
 }
 
+void MetodeBayar() {
+    string bank, norek;
+    bersihkanLayar();
+    cout << "Masukkan nama bank anda: "; getline(cin, bank);
+    cout << "Nomor rekening: "; getline(cin, norek);
+    cout << "Alamat pembayaran anda sudah diperbarui silahkan\n"
+         << "cek email yang ada pada bank anda untuk verifikasi";
+    getchar();
+    userSekarang.Bank = bank;
+    userSekarang.Norek = norek;
+
+    user[Cari_User(userSekarang.Nama)].Bank = bank;
+    user[Cari_User(userSekarang.Nama)].Norek = norek;
+
+    datauser_update();
+}
 #endif // KERANJANG_H
