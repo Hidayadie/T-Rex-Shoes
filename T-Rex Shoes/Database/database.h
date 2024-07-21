@@ -86,6 +86,9 @@ const int MAX_ISI       = 80;   // digunakan untuk maksimal database
       int pil               ,   // global variabel pilihan
           jumlahSepatu  = 0 ;   // jumlah sepatu yang ada pada program
       char pilC;
+
+
+
 string RunningDesc[]    = {"sepatu serbaguna yang cocok untuk aktivitas",
                            "sehari-hari. Mereka menawarkan kenyamanan dan",
                            "gaya tanpa mengorbankan fungsionalitas."};
@@ -137,8 +140,8 @@ string boots[] = {
 };
 
 struct Stock {
-    int jumlah          ; // jumlah sepatu itu sendiri
-    string kondisi[100] ; // Implementasian stack berada pada
+    int jumlah  = -1    ; // jumlah sepatu itu sendiri
+    bool kondisi[100] = {false}; // Implementasian stack berada pada
                           // string kondisi yang dimana setiap
                           // satuan sepatu memiliki kondisinya
                           // masing masing
@@ -214,6 +217,12 @@ bool database_read() {
                sepatu[jumlahSepatu].Jenis       =   _Jenis   ;
                sepatu[jumlahSepatu].Harga       =   _Harga   ;
                sepatu[jumlahSepatu].stok.jumlah =   _stok    ;
+
+               if (_stok > 0) {
+                    for (int i = 0; i < _stok; i++) {
+                        sepatu[jumlahSepatu].stok.kondisi[i] = true;
+                    }
+               }
                // naikkan iterator
                jumlahSepatu++;
         }
@@ -242,6 +251,8 @@ bool database_update() {
         }
     }
     fileSepatu.close();
+
+
     return true;
 }
 

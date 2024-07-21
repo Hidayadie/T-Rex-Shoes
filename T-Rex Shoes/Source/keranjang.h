@@ -102,6 +102,7 @@ void Checkout() {
         cout << "Terimakasih sudah berbelanja..";
         tumbal = head;
         while (tumbal != NULL) {
+            sepatu[Cari_ID(tumbal->data.ID)].stok.kondisi[sepatu[Cari_ID(tumbal->data.ID)].stok.jumlah] = false; //hehehehhe maap
             sepatu[Cari_ID(tumbal->data.ID)].stok.jumlah--;
             setelah = tumbal;
             tumbal = tumbal->next;
