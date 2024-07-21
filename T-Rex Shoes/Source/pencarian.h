@@ -116,12 +116,7 @@ void M_PENCARIAN() {
         cout << " -> "; getline(cin, IDBeli);
         for (int i = 0; i < jumlahSepatu; i++) {
             if (IDBeli == sepatu[i].ID) {
-                //TambahKeranjang(sepatu[i]);
-                #ifdef KERANJANG_H
                 TambahKeranjang(sepatu[i]);
-                cout << "BRUH";
-                getchar();
-                #endif // KERANJANG_H
             }
         }
         cout << "Barang berhasil dimasukkan kedalam keranjang";

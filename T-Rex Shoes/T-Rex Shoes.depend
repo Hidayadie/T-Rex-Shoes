@@ -59,7 +59,7 @@
 1721559326 /home/hidayadie/Github/Repos/T-Rex_Warna/T-Rex-Shoes/T-Rex Shoes/Database/datauser.h
 	"database.h"
 
-1721553469 /home/hidayadie/Github/Repos/T-Rex_Warna/T-Rex-Shoes/T-Rex Shoes/Source/katalog.h
+1721570681 /home/hidayadie/Github/Repos/T-Rex_Warna/T-Rex-Shoes/T-Rex Shoes/Source/katalog.h
 	"../Database/database.h"
 	"sorting.h"
 	"keranjang.h"
@@ -70,10 +70,10 @@
 1721563357 /home/hidayadie/Github/Repos/T-Rex_Warna/T-Rex-Shoes/T-Rex Shoes/Source/keranjang.h
 	"../Database/database.h"
 
-1720291534 /home/hidayadie/Github/Repos/T-Rex_Warna/T-Rex-Shoes/T-Rex Shoes/Source/pencarian.h
+1721570520 /home/hidayadie/Github/Repos/T-Rex_Warna/T-Rex-Shoes/T-Rex Shoes/Source/pencarian.h
 	"keranjang.h"
 
-1721553976 /home/hidayadie/Github/Repos/T-Rex_Warna/T-Rex-Shoes/T-Rex Shoes/Source/Admin.h
+1721570910 /home/hidayadie/Github/Repos/T-Rex_Warna/T-Rex-Shoes/T-Rex Shoes/Source/Admin.h
 	"../Database/database.h"
 	"../Database/datauser.h"
 

@@ -58,5 +58,5 @@
 58,HyperWalk,Dewasa Laki-laki,Quantum Max,Sneakers,1900000,25
 59,HyperWalk,Dewasa Perempuan,Nova,Sneakers,1900000,2
 60,HyperWalk,Anak-anak,Quantum Junior,Sneakers,1700000,7
-99,ur mom,Anak-anak,Gyatt Sigma,Boots,694200,1
 86,Tdk tahu,Dewasa Laki-laki,Siap pan nam,Boot,86000,5
+99,ur mom,Anak-anak,Gyatt Sigma,Boots,694200,1
